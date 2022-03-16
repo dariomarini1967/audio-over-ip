@@ -8,7 +8,7 @@ host_palco=$(ip -br a | awk '($2=="UP"){gsub("/.+$","",$3);print $3}')
 echo "host palco (this PC) is $host_palco"
 
 #host_regia=lenovo
-host_regia=192.168.0.100
+host_regia=192.168.10.107
 echo "host regia (remote PC) is $host_regia"
 
 sleep 2
