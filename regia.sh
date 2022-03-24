@@ -3,19 +3,11 @@
 echo "killing all jack clients"
 $(dirname $0)/kill_jack_clients.sh
 
-#host_palco=dario-pc
-host_palco=192.168.0.101
+host_palco=$(egrep "^host_palco" ADDRESSES.cfg|cut -d"=" -f2)
+host_regia=$(egrep "^host_regia" ADDRESSES.cfg|cut -d"=" -f2)
+
 echo "host palco (remote PC) is $host_palco"
-
-host_regia=$(ip -br a | awk '($2=="UP"){gsub("/.+$","",$3);print $3}')
-#host_regia=192.168.1.8
-if [ $(echo $host_regia | wc -w) -gt 1 ]
-then
-	echo "More than one network address on this PC, could not start"
-	exit 1
-fi
 echo "host regia (this PC) is $host_regia"
-
 
 sleep 2
 
