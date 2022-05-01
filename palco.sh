@@ -1,13 +1,28 @@
 #! /usr/bin/bash
 
-echo "killing all jack clients"
-$(dirname $0)/kill_jack_clients.sh
 
 host_palco=$(egrep "^host_palco" ADDRESSES.cfg|cut -d"=" -f2)
 host_regia=$(egrep "^host_regia" ADDRESSES.cfg|cut -d"=" -f2)
+profilo_palco=$(egrep "^profilo_palco" ADDRESSES.cfg|cut -d"=" -f2)
+profilo_regia=$(egrep "^profilo_regia" ADDRESSES.cfg|cut -d"=" -f2)
 
 echo "host palco (this PC) is $host_palco"
 echo "host regia (remote PC) is $host_regia"
+echo "profilo palco (this PC) is $profilo_palco"
+echo "profilo regia (remote PC) is $profilo_regia"
+
+echo "killing all jack clients"
+$(dirname $0)/kill_jack_clients.sh
+
+qjackctl_pid=$(pgrep -f qjackctl)
+if [ $? -eq 0 ]
+then
+        echo "killing existing qjackctl"
+        kill -9 $qjackctl_pid
+fi
+qjackctl 
+
+
 
 sleep 2
 
