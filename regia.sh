@@ -3,6 +3,17 @@
 echo "killing all jack clients"
 $(dirname $0)/kill_jack_clients.sh
 
+lsp_pid=$(pgrep -f linux-show-player)
+if [ $? -eq 0 ]
+then
+	echo "killing existing linux-show-play"
+	kill -9 $lsp_pid
+fi
+linux-show-player -f /home/BASI/ciaparatt/regia.lsp
+
+exit
+
+
 host_palco=$(egrep "^host_palco" ADDRESSES.cfg|cut -d"=" -f2)
 host_regia=$(egrep "^host_regia" ADDRESSES.cfg|cut -d"=" -f2)
 
