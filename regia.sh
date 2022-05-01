@@ -10,9 +10,17 @@ echo "host regia (this PC) is $host_regia"
 echo "profilo palco (remote PC) is $profilo_palco"
 echo "profilo regia (this PC) is $profilo_regia"
 
-
 echo "killing all jack clients"
 $(dirname $0)/kill_jack_clients.sh
+
+echo "starting qjackctl"
+qjackctl_pid=$(pgrep -f qjackctl)
+if [ $? -eq 0 ]
+then
+        echo "killing existing qjackctl"
+        kill -9 $qjackctl_pid
+fi
+qjackctl -p $profilo_regia -s 2>&1 >qjackctl.log
 
 echo "starting linux-show-player"
 lsp_pid=$(pgrep -f linux-show-player)
