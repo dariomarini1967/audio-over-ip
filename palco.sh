@@ -20,7 +20,7 @@ then
         echo "killing existing qjackctl"
         kill -9 $qjackctl_pid
 fi
-nohup qjackctl -p $profilo_palco -s 2>&1 >qjackctl.log
+nohup qjackctl -p $profilo_palco -s 2>&1 >qjackctl.log &
 
 
 

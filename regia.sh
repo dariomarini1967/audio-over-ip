@@ -20,7 +20,7 @@ then
         echo "killing existing qjackctl"
         kill -9 $qjackctl_pid
 fi
-qjackctl -p $profilo_regia -s 2>&1 >qjackctl.log
+qjackctl -p $profilo_regia -s 2>&1 >qjackctl.log &
 
 echo "starting linux-show-player"
 lsp_pid=$(pgrep -f linux-show-player)
