@@ -24,7 +24,7 @@ nohup qjackctl -p $profilo_palco -s 2>&1 >qjackctl.log &
 
 
 
-sleep 2
+sleep 10
 
 echo "starting zita-n2j and zita-j2n"
 nohup zita-j2n --jname a_regia $host_regia 4321 2>&1 >>a_regia.log &
