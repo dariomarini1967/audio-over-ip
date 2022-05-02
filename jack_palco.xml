@@ -1,42 +1,35 @@
 <!DOCTYPE patchbay>
-<patchbay name="palco_jack" version="0.9.4">
+<patchbay version="0.9.4" name="jack_palco">
  <output-sockets>
-  <socket name="system" client="system" type="jack-audio" exclusive="off">
+  <socket type="jack-audio" exclusive="off" client="system" name="system">
    <plug>capture_1</plug>
    <plug>capture_2</plug>
   </socket>
-  <socket name="PulseAudio JACK Sink" client="PulseAudio\ JACK\ Sink" type="jack-audio" exclusive="off">
-   <plug>front\-left</plug>
-   <plug>front\-right</plug>
-  </socket>
-  <socket name="da_regia" client="da_regia" type="jack-audio" exclusive="off">
+  <socket type="jack-audio" exclusive="off" client="da_regia" name="da_regia">
    <plug>out_1</plug>
    <plug>out_2</plug>
   </socket>
-  <socket name="Midi Through" client="Midi\ Through" type="alsa-midi" exclusive="off">
+  <socket type="alsa-midi" exclusive="off" client="Midi\ Through" name="Midi Through">
    <plug>Midi\ Through\ Port\-0</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket name="system" client="system" type="jack-audio" exclusive="off">
+  <socket type="jack-audio" exclusive="off" client="system" name="system">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
   </socket>
-  <socket name="PulseAudio JACK Source" client="PulseAudio\ JACK\ Source" type="jack-audio" exclusive="off">
-   <plug>front\-left</plug>
-   <plug>front\-right</plug>
-  </socket>
-  <socket name="a_regia" client="a_regia" type="jack-audio" exclusive="off">
+  <socket type="jack-audio" exclusive="off" client="a_regia" name="a_regia">
    <plug>in_1</plug>
    <plug>in_2</plug>
   </socket>
-  <socket name="Midi Through" client="Midi\ Through" type="alsa-midi" exclusive="off">
+  <socket type="alsa-midi" exclusive="off" client="Midi\ Through" name="Midi Through">
    <plug>Midi\ Through\ Port\-0</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable input="system" type="jack-audio" output="da_regia"/>
+  <cable type="jack-audio" input="a_regia" output="system"/>
+  <cable type="jack-audio" input="system" output="da_regia"/>
  </cables>
 </patchbay>
 
