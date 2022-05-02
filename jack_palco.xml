@@ -1,0 +1,42 @@
+<!DOCTYPE patchbay>
+<patchbay name="palco_jack" version="0.9.4">
+ <output-sockets>
+  <socket name="system" client="system" type="jack-audio" exclusive="off">
+   <plug>capture_1</plug>
+   <plug>capture_2</plug>
+  </socket>
+  <socket name="PulseAudio JACK Sink" client="PulseAudio\ JACK\ Sink" type="jack-audio" exclusive="off">
+   <plug>front\-left</plug>
+   <plug>front\-right</plug>
+  </socket>
+  <socket name="da_regia" client="da_regia" type="jack-audio" exclusive="off">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket name="Midi Through" client="Midi\ Through" type="alsa-midi" exclusive="off">
+   <plug>Midi\ Through\ Port\-0</plug>
+  </socket>
+ </output-sockets>
+ <input-sockets>
+  <socket name="system" client="system" type="jack-audio" exclusive="off">
+   <plug>playback_1</plug>
+   <plug>playback_2</plug>
+  </socket>
+  <socket name="PulseAudio JACK Source" client="PulseAudio\ JACK\ Source" type="jack-audio" exclusive="off">
+   <plug>front\-left</plug>
+   <plug>front\-right</plug>
+  </socket>
+  <socket name="a_regia" client="a_regia" type="jack-audio" exclusive="off">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+  <socket name="Midi Through" client="Midi\ Through" type="alsa-midi" exclusive="off">
+   <plug>Midi\ Through\ Port\-0</plug>
+  </socket>
+ </input-sockets>
+ <slots/>
+ <cables>
+  <cable input="system" type="jack-audio" output="da_regia"/>
+ </cables>
+</patchbay>
+
