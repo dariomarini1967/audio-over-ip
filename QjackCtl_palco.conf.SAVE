@@ -5,22 +5,22 @@ PatchbayPath=/home/marini/audio-over-ip/jack_palco.xml
 SessionSaveVersion=true
 
 [Geometry]
-qjackctlConnectionsForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\0\0\0\0\x32\0\0\x1\xdf\0\0\x1q\0\0\0\0\0\0\0\x32\0\0\x1\xdf\0\0\x1q\0\0\0\0\0\0\0\0\a\x80\0\0\0\0\0\0\0\x32\0\0\x1\xdf\0\0\x1q)
+qjackctlConnectionsForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\0\0\0\0(\0\0\x1\xdf\0\0\x1g\0\0\0\0\0\0\0(\0\0\x1\xdf\0\0\x1g\0\0\0\0\0\0\0\0\x5V\0\0\0\0\0\0\0(\0\0\x1\xdf\0\0\x1g)
 qjackctlConnectionsForm\visible=false
-qjackctlGraphForm\geometry="@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\xf\0\0\x1=\0\0\x3.\0\0\x3\xb1\0\0\0\xf\0\0\x1Z\0\0\x3.\0\0\x3\xb1\0\0\0\0\0\0\0\0\a\x80\0\0\0\xf\0\0\x1Z\0\0\x3.\0\0\x3\xb1)"
+qjackctlGraphForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\x1\xcb\0\0\0\x9a\0\0\x4\xf2\0\0\x3\x15\0\0\x1\xcf\0\0\0\xba\0\0\x4\xee\0\0\x3\x11\0\0\0\0\0\0\0\0\x5V\0\0\x1\xcf\0\0\0\xba\0\0\x4\xee\0\0\x3\x11)
 qjackctlGraphForm\visible=true
-qjackctlMainForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\x5\x1\0\0\x2\xbe\0\0\x6\xe7\0\0\x3P\0\0\x5\x1\0\0\x2\xdb\0\0\x6\xe7\0\0\x3P\0\0\0\0\0\0\0\0\a\x80\0\0\x5\x1\0\0\x2\xdb\0\0\x6\xe7\0\0\x3P)
+qjackctlMainForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\x3\x38\0\0\0\x31\0\0\x5 \0\0\0\xbc\0\0\x3<\0\0\0Q\0\0\x5\x1c\0\0\0\xb8\0\0\0\0\0\0\0\0\x5V\0\0\x3<\0\0\0Q\0\0\x5\x1c\0\0\0\xb8)
 qjackctlMainForm\visible=true
-qjackctlMessagesStatusForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\x2z\0\0\x1\xcf\0\0\x5~\0\0\x3\xc8\0\0\x2z\0\0\x1\xec\0\0\x5~\0\0\x3\xc8\0\0\0\0\0\0\0\0\a\x80\0\0\x2z\0\0\x1\xec\0\0\x5~\0\0\x3\xc8)
+qjackctlMessagesStatusForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0x\0\0\0\xb7\0\0\x4\x6\0\0\x2\x1a\0\0\0|\0\0\0\xd7\0\0\x4\x2\0\0\x2\x16\0\0\0\0\0\0\0\0\x5V\0\0\0|\0\0\0\xd7\0\0\x4\x2\0\0\x2\x16)
 qjackctlMessagesStatusForm\visible=true
-qjackctlPatchbayForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\0\0\0\0\x32\0\0\x2\a\0\0\x1q\0\0\0\0\0\0\0\x32\0\0\x2\a\0\0\x1q\0\0\0\0\0\0\0\0\a\x80\0\0\0\0\0\0\0\x32\0\0\x2\a\0\0\x1q)
+qjackctlPatchbayForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\x1\xd0\0\0\x1%\0\0\x4\x85\0\0\x2\x88\0\0\x1\xd4\0\0\x1\x45\0\0\x4\x81\0\0\x2\x84\0\0\0\0\0\0\0\0\x5V\0\0\x1\xd4\0\0\x1\x45\0\0\x4\x81\0\0\x2\x84)
 qjackctlPatchbayForm\visible=false
-qjackctlSessionForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\0\0\0\0\x32\0\0\x1\xdf\0\0\x1q\0\0\0\0\0\0\0\x32\0\0\x1\xdf\0\0\x1q\0\0\0\0\0\0\0\0\a\x80\0\0\0\0\0\0\0\x32\0\0\x1\xdf\0\0\x1q)
+qjackctlSessionForm\geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\0\0\0\0(\0\0\x1\xdf\0\0\x1g\0\0\0\0\0\0\0(\0\0\x1\xdf\0\0\x1g\0\0\0\0\0\0\0\0\x5V\0\0\0\0\0\0\0(\0\0\x1\xdf\0\0\x1g)
 qjackctlSessionForm\visible=false
 
 [GraphCanvas]
-CanvasRect=@Variant(\0\0\0\x14\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0)
-CanvasZoom=0.6999999999999993
+CanvasRect=@Variant(\0\0\0\x14\xc0\x84\x80\x9a\xc4\x1b\x8f\xa3\xc0p\x8b\xac\xaa\x18\x8b\x46@\x93#X\x83q\xf4X@\x87\x88%\xd5\xd7\xcc\xcc)
+CanvasZoom=0.5999999999999993
 
 [GraphColors]
 0x1b8e6271=#006b00
@@ -30,7 +30,7 @@ CanvasZoom=0.6999999999999993
 0x9111e0b4=#6b0000
 
 [GraphLayout]
-qjackctlGraphForm=@ByteArray(\0\0\0\xff\0\0\0\0\xfd\0\0\0\0\0\0\x3 \0\0\x1\xf1\0\0\0\x4\0\0\0\x4\0\0\0\b\0\0\0\b\xfc\0\0\0\x1\0\0\0\x2\0\0\0\x1\0\0\0\xe\0T\0o\0o\0l\0\x42\0\x61\0r\x1\0\0\0\0\xff\xff\xff\xff\0\0\0\0\0\0\0\0)
+qjackctlGraphForm=@ByteArray(\0\0\0\xff\0\0\0\0\xfd\0\0\0\0\0\0\x3 \0\0\x1\xf2\0\0\0\x4\0\0\0\x4\0\0\0\b\0\0\0\b\xfc\0\0\0\x1\0\0\0\x2\0\0\0\x1\0\0\0\xe\0T\0o\0o\0l\0\x42\0\x61\0r\x1\0\0\0\0\xff\xff\xff\xff\0\0\0\0\0\0\0\0)
 
 [GraphNodePos]
 129%3ARtMidiIn%20Client=@Variant(\0\0\0\x1a\xc0qj\xaa\xaa\xaa\xaa\xab@i\x8c\x30\xc3\f0\xc4)
@@ -57,7 +57,7 @@ a_regia-01%3AInput=@Variant(\0\0\0\x1a@v\xc0\0\0\0\0\0@h\x80\0\0\0\0\0)
 a_regia-02%3AInput=@Variant(\0\0\0\x1a@v\0\0\0\0\0\0\xc0Z\0\0\0\0\0\0)
 a_regia%3AInput=@Variant(\0\0\0\x1a@b\x11\xdd)\x87\x90\x9c@X`\xb1\x83\x39\x31\x94)
 ardour=@Variant(\0\0\0\x1a@{\xe5\xe5\ryC^@j\xcdyC^P\xd8)
-audacious=@Variant(\0\0\0\x1a\xc0jH\xca\x8c\xa8\xca\x8c\xc0m\x9c\xf3\xcf<\xf3\xd4)
+audacious="@Variant(\0\0\0\x1a@J\x93\xb1;\x13\xb1:@^j\xaa\xaa\xaa\xaa\xaa)"
 da_palco-01%3AOutput=@Variant(\0\0\0\x1a\xc0}\x80\0\0\0\0\0@f\x80\0\0\0\0\0)
 da_palco%3AOutput=@Variant(\0\0\0\x1a\xc0r\x80\0\0\0\0\0@L\0\0\0\0\0\0)
 da_regia-01%3AOutput=@Variant(\0\0\0\x1a\xc0}\0\0\0\0\0\0@h\0\0\0\0\0\0)
@@ -75,7 +75,7 @@ linux-show-player-4=@Variant(\0\0\0\x1a\xc0<\0\0\0\0\0\0\xc0\x44\0\0\0\0\0\0)
 linux-show-player-5=@Variant(\0\0\0\x1a@Q\0\0\0\0\0\0\xc0<\0\0\0\0\0\0)
 linux-show-player-6=@Variant(\0\0\0\x1a\xc0]\0\0\0\0\0\0@4\0\0\0\0\0\0)
 linux-show-player-7=@Variant(\0\0\0\x1a\xc0X\0\0\0\0\0\0@U\0\0\0\0\0\0)
-linux-show-player-8=@Variant(\0\0\0\x1a\xc0\x34\xbd\x37\xa6\xf4\xde\x80@_%]\xd0LR\xb0)
+linux-show-player-8=@Variant(\0\0\0\x1a\xc0Q/M\xe9\xbd\x37\xa7\xc0K\x90\xb2\x16\x42\xc8X)
 linux-show-player-9=@Variant(\0\0\0\x1a@T\0\0\0\0\0\0\xc0Y\0\0\0\0\0\0)
 second_in=@Variant(\0\0\0\x1a\xc0t\xc6\x42\xc8Y\v\"\xc0\x61{\xd3zoM\xea)
 second_out=@Variant(\0\0\0\x1a@q\xe0\0\0\0\0\0\xc0\x41\0\0\0\0\0\0)
@@ -100,8 +100,7 @@ ZoomRange=true
 ActivePatchbayPathComboBox\Item1=/home/marini/audio-over-ip/jack_palco.xml
 ActivePatchbayPathComboBox\Item2=/home/marini/audio-over-ip/palco_jack.xml
 ActivePatchbayPathComboBox\Item3=/home/marini/audio-over-ip/regia_jack.xml
-MessagesLogPathComboBox\Item1=qjackctl_palco.log
-MessagesLogPathComboBox\Item2=qjackctl.log
+MessagesLogPathComboBox\Item1=qjackctl.log
 PostStartupScriptShellComboBox\Item1=/home/marini/audio-over-ip/start_zita.sh
 PostStartupScriptShellComboBox\Item2=/home/marini/audio-over-ip/zita_palco.sh
 PostStartupScriptShellComboBox\Item3=/home/marini/audio-over-ip/regia.sh
@@ -142,7 +141,7 @@ MessagesFont="Monospace,8,-1,5,75,0,0,0,0,0"
 MessagesLimit=true
 MessagesLimitLines=1000
 MessagesLog=true
-MessagesLogPath=qjackctl_palco.log
+MessagesLogPath=qjackctl.log
 PostShutdownScript=false
 PostShutdownScriptShell=
 PostStartupScript=true
@@ -185,7 +184,7 @@ Preset4=EDIROL
 Preset5=INTERNAL
 
 [Program]
-Version=0.9.6
+Version=0.9.4
 
 [Settings]
 Audio=0
@@ -411,4 +410,4 @@ AlsaConnectView\sizes=38, 20, 38
 AudioConnectView\sizes=270, 88, 270
 InfraClientSplitter\sizes=14, 14
 MidiConnectView\sizes=38, 20, 38
-PatchbayView\sizes=38, 20, 38
+PatchbayView\sizes=226, 38, 226

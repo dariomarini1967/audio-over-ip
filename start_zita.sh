@@ -19,7 +19,7 @@ then
 	exit 1
 fi
 
-exec >> zita.log 2>&1
+###exec >> zita.log 2>&1
 echo $(date)" - is_palco is $is_palco"
 
 host_palco=$(egrep "^host_palco" ADDRESSES.cfg|cut -d"=" -f2)
