@@ -1,0 +1,5 @@
+<?xml version="1.0" ?>
+<jack_mixer geometry="200x420" paned_position="101" visible="True">
+	<input_channel name="Ch1" type="stereo" direct_output="True" volume="7.832879" balance="0.000000" wide="True" out_mute="False" volume_midi_cc="11" balance_midi_cc="12" mute_midi_cc="13" solo_midi_cc="14"/>
+	<gui_factory confirm-quit="False" default_meter_scale="K20" default_project_path="" default_slider_scale="linear_30dB" midi_behavior_mode="0" use_custom_widgets="False" vumeter_color="#ccb300" vumeter_color_scheme="default"/>
+</jack_mixer>
