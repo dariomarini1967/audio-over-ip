@@ -11,7 +11,7 @@ palco_or_regia=$($curr_dir/palco_or_regia.pl)
 if [ $? -eq 0 ]
 then
 	echo "starting linux-show-player on $palco_or_regia"
-	linux-show-player -f /home/BASI/ciaparatt/$palco_or_regia.lsp 2>&1 >$HOME/lsp.log &
+	linux-show-player -f $HOME/BASI/ciaparatt/$palco_or_regia.lsp 2>&1 >$HOME/lsp.log &
 else
 	echo "could not understand if this PC is PALCO or REGIA"
 fi
