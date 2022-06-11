@@ -8,5 +8,5 @@ then
 	exit 1
 fi
 
-ssh -Y marini@palco.local audio-over-ip/start_lsp.sh &
+ssh -Y tecnici@palco.local audio-over-ip/start_lsp.sh &
 jack_mixer -c $curr_dir/mixer_regia.xml cuffie &
