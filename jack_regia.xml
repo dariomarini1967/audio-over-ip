@@ -1,55 +1,51 @@
 <!DOCTYPE patchbay>
-<patchbay name="jack_regia" version="0.9.4">
+<patchbay version="0.9.6" name="jack_regia">
  <output-sockets>
-  <socket client="system" name="system" exclusive="off" type="jack-audio">
+  <socket client="system" type="jack-audio" exclusive="off" name="system">
    <plug>capture_1</plug>
    <plug>capture_2</plug>
   </socket>
-  <socket client="da_palco" name="da_palco" exclusive="off" type="jack-audio">
+  <socket client="da_palco" type="jack-audio" exclusive="off" name="da_palco">
    <plug>out_1</plug>
    <plug>out_2</plug>
   </socket>
-  <socket client="cuffie" name="cuffie" exclusive="off" type="jack-audio">
-   <plug>Monitor\ L</plug>
-   <plug>Monitor\ R</plug>
-   <plug>Ch1\ Out\ L</plug>
-   <plug>Ch1\ Out\ R</plug>
+  <socket client="PulseAudio\ JACK\ Sink" type="jack-audio" exclusive="off" name="PulseAudio JACK Sink">
+   <plug>front\-left</plug>
+   <plug>front\-right</plug>
   </socket>
-  <socket client="cuffie" name="cuffie 2" exclusive="off" type="jack-audio">
-   <plug>Ch1\ Out\ L</plug>
-   <plug>Ch1\ Out\ R</plug>
-  </socket>
-  <socket client="cuffie" name="cuffie" exclusive="off" type="jack-midi">
-   <plug>midi\ out</plug>
-  </socket>
-  <socket client="Midi\ Through" name="Midi Through" exclusive="off" type="alsa-midi">
+  <socket client="Midi\ Through" type="alsa-midi" exclusive="off" name="Midi Through">
    <plug>Midi\ Through\ Port\-0</plug>
+  </socket>
+  <socket client="UMC204HD\ 192k" type="alsa-midi" exclusive="off" name="UMC204HD 192k">
+   <plug>UMC204HD\ 192k\ MIDI\ 1</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket client="system" name="system" exclusive="off" type="jack-audio">
+  <socket client="system" type="jack-audio" exclusive="off" name="system">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
+   <plug>playback_3</plug>
+   <plug>playback_4</plug>
   </socket>
-  <socket client="a_palco" name="a_palco" exclusive="off" type="jack-audio">
+  <socket client="a_palco" type="jack-audio" exclusive="off" name="a_palco">
    <plug>in_1</plug>
    <plug>in_2</plug>
   </socket>
-  <socket client="cuffie" name="cuffie" exclusive="off" type="jack-audio">
-   <plug>Ch1\ L</plug>
-   <plug>Ch1\ R</plug>
+  <socket client="PulseAudio\ JACK\ Source" type="jack-audio" exclusive="off" name="PulseAudio JACK Source">
+   <plug>front\-left</plug>
+   <plug>front\-right</plug>
   </socket>
-  <socket client="cuffie" name="cuffie" exclusive="off" type="jack-midi">
-   <plug>midi\ in</plug>
-  </socket>
-  <socket client="Midi\ Through" name="Midi Through" exclusive="off" type="alsa-midi">
+  <socket client="Midi\ Through" type="alsa-midi" exclusive="off" name="Midi Through">
    <plug>Midi\ Through\ Port\-0</plug>
+  </socket>
+  <socket client="UMC204HD\ 192k" type="alsa-midi" exclusive="off" name="UMC204HD 192k">
+   <plug>UMC204HD\ 192k\ MIDI\ 1</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable output="da_palco" input="cuffie" type="jack-audio"/>
-  <cable output="cuffie 2" input="system" type="jack-audio"/>
+  <cable type="jack-audio" input="system" output="da_palco"/>
+  <cable type="jack-audio" input="a_palco" output="PulseAudio JACK Sink"/>
  </cables>
 </patchbay>
 
