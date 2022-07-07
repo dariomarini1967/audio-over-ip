@@ -1,35 +1,34 @@
 <!DOCTYPE patchbay>
-<patchbay name="jack_palco" version="0.9.6">
+<patchbay version="0.9.6" name="jack_palco">
  <output-sockets>
-  <socket type="jack-audio" name="system" exclusive="off" client="system">
+  <socket name="system" client="system" exclusive="off" type="jack-audio">
    <plug>capture_1</plug>
    <plug>capture_2</plug>
   </socket>
-  <socket type="jack-audio" name="da_regia" exclusive="off" client="da_regia">
+  <socket name="da_regia" client="da_regia" exclusive="off" type="jack-audio">
    <plug>out_1</plug>
    <plug>out_2</plug>
   </socket>
-  <socket type="alsa-midi" name="Midi Through" exclusive="off" client="Midi\ Through">
+  <socket name="Midi Through" client="Midi\ Through" exclusive="off" type="alsa-midi">
    <plug>Midi\ Through\ Port\-0</plug>
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket type="jack-audio" name="system" exclusive="off" client="system">
+  <socket name="system" client="system" exclusive="off" type="jack-audio">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
   </socket>
-  <socket type="jack-audio" name="a_regia" exclusive="off" client="a_regia">
+  <socket name="a_regia" client="a_regia" exclusive="off" type="jack-audio">
    <plug>in_1</plug>
    <plug>in_2</plug>
   </socket>
-  <socket type="alsa-midi" name="Midi Through" exclusive="off" client="Midi\ Through">
+  <socket name="Midi Through" client="Midi\ Through" exclusive="off" type="alsa-midi">
    <plug>Midi\ Through\ Port\-0</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable type="jack-audio" input="a_regia" output="system"/>
-  <cable type="jack-audio" input="system" output="da_regia"/>
+  <cable input="a_regia" output="system" type="jack-audio"/>
  </cables>
 </patchbay>
 
