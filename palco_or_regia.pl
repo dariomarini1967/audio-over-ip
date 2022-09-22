@@ -2,16 +2,22 @@
 
 use strict;
 
-if(!open(AVAHI,"<","/etc/avahi/avahi-daemon.conf")){
-	exit(1);
-}
-my @a=<AVAHI>;
+open(AVAHI,"<","/etc/avahi/avahi-daemon.conf") or die;
+my @a=<AVAHI>;chomp(@a);
 close(AVAHI);
 my @b=grep(/^host-name/,@a);
-if($b[0]=~m/=.*(palco|regia).*$/){
-	print $1;
-}else{
-	exit(2);
-}
+die("cannot find host-name parameter in /etc/avahi/avahi-daemon.conf")unless(scalar(@b)==1);
+my $this_host=$b[0];
+$this_host=~s/^.*=//g;
+$this_host.=".local";
+
+
+open(ADDRESSES,"<","ADDRESSES.cfg") or die;
+my @addresses=<ADDRESSES>;chomp(@addresses);
+close(ADDRESSES);
+my @c=grep(/$this_host/,@addresses);
+die("cannot find this host ($this_host) in ADDRESSES.cfg")unless(scalar(@c)==1);
+$c[0]=~m/^host_(.+)=/;
+print $1;
 
 
