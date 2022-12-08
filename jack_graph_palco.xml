@@ -1,0 +1,41 @@
+<!DOCTYPE patchbay>
+<patchbay name="persistent1" version="0.9.6">
+ <output-sockets>
+  <socket name="system" type="jack-audio" exclusive="off" client="system">
+   <plug>capture_1</plug>
+   <plug>capture_2</plug>
+  </socket>
+  <socket name="da_regia" type="jack-audio" exclusive="off" client="da_regia">
+   <plug>out_1</plug>
+   <plug>out_2</plug>
+  </socket>
+  <socket name="player_meter" type="jack-audio" exclusive="off" client="player_meter">
+   <plug>monitor_1</plug>
+   <plug>monitor_2</plug>
+   <plug>monitor_3</plug>
+   <plug>monitor_4</plug>
+  </socket>
+  <socket name="Audacious" type="jack-audio" exclusive="off" client="Audacious">
+   <plug>out_0</plug>
+   <plug>out_1</plug>
+  </socket>
+ </output-sockets>
+ <input-sockets>
+  <socket name="system" type="jack-audio" exclusive="off" client="system">
+   <plug>playback_1</plug>
+   <plug>playback_2</plug>
+  </socket>
+  <socket name="player_meter" type="jack-audio" exclusive="off" client="player_meter">
+   <plug>meter_1</plug>
+   <plug>meter_2</plug>
+   <plug>meter_3</plug>
+   <plug>meter_4</plug>
+  </socket>
+ </input-sockets>
+ <slots/>
+ <cables>
+  <cable output="player_meter" type="jack-audio" input="system"/>
+  <cable output="Audacious" type="jack-audio" input="player_meter"/>
+ </cables>
+</patchbay>
+

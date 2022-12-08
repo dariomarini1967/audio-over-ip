@@ -16,6 +16,7 @@ then
 	echo "starting zita for PALCO"
 	zita-j2n --jname a_regia $host_regia 4321 2>&1 >>a_regia.log &
 	zita-n2j --buff 30 --jname da_regia $host_palco 4322 2>&1 >>da_regia.log 2>&1 &
+	meterbridge -n player_meter -t dpm 1 2 3 4 &
 	# ./start_lsp.sh &
 else
 	echo "starting zita for REGIA"
