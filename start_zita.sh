@@ -17,7 +17,9 @@ then
 	host_palco=$(ip -br a  | awk '($2=="UP"){gsub("/.+$","",$3);print $3}')
 	zita-j2n --jname a_regia $host_regia 4321 2>&1 >>a_regia.log &
 	zita-n2j --buff 30 --jname da_regia $host_palco 4322 2>&1 >>da_regia.log 2>&1 &
+	pkill -f meterbridge
 	meterbridge -n player_meter -t dpm 1 2 3 4 &
+	audacious &
 	# ./start_lsp.sh &
 else
 	echo "starting zita for REGIA"
