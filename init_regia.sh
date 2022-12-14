@@ -8,5 +8,5 @@ then
 	exit 1
 fi
 host_palco=$(egrep "^host_palco" $curr_dir/ADDRESSES.cfg|cut -d"=" -f2)
-ssh -Y tecnici@$host_palco audio-over-ip/start_lsp.sh &
-jack_mixer -c $curr_dir/mixer_regia.xml cuffie &
+ssh -Y tecnici@$host_palco /usr/bin/audacious
+#jack_mixer -c $curr_dir/mixer_regia.xml cuffie &
