@@ -8,5 +8,5 @@ then
 	echo "killing existing linux-show-player"
 	kill -9 $lsp_pid
 fi
-echo "starting linux-show-player on palco"
-linux-show-player -f $HOME/BASI/ciaparatt/palco.lsp 2>&1 >>$HOME/lsp.log &
+echo "starting linux-show-player on palco; display is $DISPLAY; tty is "$(tty)
+linux-show-player -f $HOME/BASI/ciaparatt/palco.lsp
