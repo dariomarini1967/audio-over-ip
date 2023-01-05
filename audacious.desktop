@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=/home/tecnici/audio-over-ip/invoke_by_palco.sh audacious
+GenericName[en_US]=Audacious
+GenericName=Audacious
+Icon=audacious
+MimeType=
+Name[en_US]=Audacious TEATRO
+Name=Audacious TEATRO
+Path=/home/tecnici/audio-over-ip
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

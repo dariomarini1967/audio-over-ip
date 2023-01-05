@@ -1,0 +1,20 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=/home/tecnici/audio-over-ip/invoke_by_palco.sh ./lsp_teatro.sh
+GenericName[en_US]=Linux Show Player
+GenericName=Linux Show Player
+Icon=audio-speaker-right-testing
+MimeType=
+Name[en_US]=Linux Show Player TEATRO
+Name=Linux Show Player TEATRO
+Path=/home/tecnici/audio-over-ip
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
