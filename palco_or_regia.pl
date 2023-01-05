@@ -1,5 +1,7 @@
 #! /usr/bin/perl
 
+use File::Basename;
+
 use strict;
 
 open(AVAHI,"<","/etc/avahi/avahi-daemon.conf") or die;
@@ -12,7 +14,7 @@ $this_host=~s/^.*=//g;
 $this_host.=".local";
 
 
-open(ADDRESSES,"<","ADDRESSES.cfg") or die;
+open(ADDRESSES,"<",dirname($0)."/ADDRESSES.cfg") or die;
 my @addresses=<ADDRESSES>;chomp(@addresses);
 close(ADDRESSES);
 my @c=grep(/$this_host/,@addresses);
