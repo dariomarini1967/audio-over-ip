@@ -1,0 +1,214 @@
+# fixed hardware (display always)
+
+direction: down
+
+console: {
+  SOLO.style.fill: "#ffff3f"
+  M.style.fill: "#8ecae6"
+  STEREO: {
+    L
+    R
+    style.fill: "#8ecae6"
+  }
+  shape: parallelogram
+  style.fill: "#ffe5d9"
+}
+
+phisicalInput: {
+  block1-8.shape: cloud
+  block9-16.shape: cloud
+  block17-24.shape: cloud
+  block25-32.shape: cloud
+  style.fill: "#00afb9"
+}
+
+phisicalOutput: {
+  block1-4: {
+    xlr1: {
+      shape: circle
+      style.fill: "#bf0603"
+    }
+    xlr2: {
+      shape: circle
+      style.fill: "#bf0603"
+    }
+    xlr3: {
+      shape: circle
+      style.fill: "#bf0603"
+    }
+    xlr4: {
+      shape: circle
+      style.fill: "#bf0603"
+    }
+
+    shape: cloud
+  }
+
+  block5-8: {
+    xlr5: {
+      shape: circle
+      style.fill: "#bf0603"
+    }
+    xlr6: {
+      shape: circle
+      style.fill: "#bf0603"
+    }
+    xlr7: {
+      shape: circle
+      style.fill: "#bf0603"
+    }
+    xlr8: {
+      shape: circle
+      style.fill: "#bf0603"
+    }
+    shape: cloud
+  }
+
+  shape: rectangle
+  style.fill: "#00afb9"
+}
+
+internalInput: {
+  block1-8.shape: cloud
+  block9-16.shape: cloud
+  shape: step
+  style.fill: "#4f772d"
+}
+
+internalOutput: {
+  block1-8.shape: cloud
+  block9-16.shape: cloud
+  shape: step
+  style.fill: "#c9184a"
+}
+
+xusb: {
+  block1-8.shape: cloud
+  block9-16.shape: cloud
+  block17-24.shape: cloud
+  block25-32.shape: cloud
+  style.fill: "#f07167"
+}
+
+aux: {
+  jack_in1: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  jack_in2: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  jack_in3: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  jack_in4: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  jack_in5: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  jack_in6: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  jack_out1: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+  jack_out2: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+  jack_out3: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+  jack_out4: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+  jack_out5: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+  jack_out6: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+  shape: rectangle
+  style.fill: "#00afb9"
+}
+
+usbkey: {
+  recL: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  recR: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  playL: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+  playR: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+  shape: rectangle
+  style.fill: "#f07167"
+}
+
+# some minimal connectors
+
+console: {
+  slider1.label: ch1
+  bus1: {
+    label: MixBus1
+    style.fill: "#ffb703"
+  }
+}
+
+phisicalInput.block1-8: {
+  xlr1: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+  xlr2: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+}
+
+xusb.block1-8: {
+  return1: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+
+  send1: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+}
+
+internalInput.block1-8: {
+  ch1: {
+    shape: circle
+    style.fill: "#a0a0a0"
+  }
+}
+
+internalOutput.block1-8: {
+  ch1: {
+    shape: circle
+    style.fill: "#a0a0a0"
+  }
+}
+
+# end
