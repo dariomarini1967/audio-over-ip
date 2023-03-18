@@ -1,29 +1,29 @@
 # fixed hardware (display always)
 
-direction:down
+direction: down
 
 console: {
   SOLO.style.fill: "#ffff3f"
   M.style.fill: "#8ecae6"
-  STEREO:{
+  STEREO: {
     L
     R
     style.fill: "#8ecae6"
-    }
+  }
   shape: parallelogram
   style.fill: "#ffe5d9"
 }
 
-local:{
-  block1-8.shape:cloud
-  block9-16.shape:cloud
-  block17-24.shape:cloud
-  block25-32.shape:cloud
+phisicalInput: {
+  block1-8.shape: cloud
+  block9-16.shape: cloud
+  block17-24.shape: cloud
+  block25-32.shape: cloud
   style.fill: "#00afb9"
 }
 
-output: {
-  block1-4{
+phisicalOutput: {
+  block1-4: {
     xlr1: {
       shape: circle
       style.fill: "#bf0603"
@@ -40,9 +40,11 @@ output: {
       shape: circle
       style.fill: "#bf0603"
     }
-    shape:cloud
+
+    shape: cloud
   }
-  block5-8{
+
+  block5-8: {
     xlr5: {
       shape: circle
       style.fill: "#bf0603"
@@ -59,88 +61,89 @@ output: {
       shape: circle
       style.fill: "#bf0603"
     }
-    shape:cloud
+    shape: cloud
   }
- 
+
   shape: rectangle
   style.fill: "#00afb9"
-
 }
 
-
-consoleOutput:{
-	block1-4.shape:cloud
-	block5-8.shape:cloud
-	block9-12.shape:cloud
-	block13-16.shape:cloud
-	shape:step
-	style.fill:"#c9184a"
+internalInput: {
+  block1-8.shape: cloud
+  block9-16.shape: cloud
+  block17-24.shape: cloud
+  block25-32.shape: cloud
+  shape: step
+  style.fill: "#4f772d"
 }
 
+internalOutput: {
+  block1-8.shape: cloud
+  block9-16.shape: cloud
+  shape: step
+  style.fill: "#c9184a"
+}
 
-
-xusb:{
-  block1-8.shape:cloud
-  block9-16.shape:cloud
-  block17-24.shape:cloud
-  block25-32.shape:cloud
+xusb: {
+  block1-8.shape: cloud
+  block9-16.shape: cloud
+  block17-24.shape: cloud
+  block25-32.shape: cloud
   style.fill: "#f07167"
 }
 
 aux: {
-  jack_in1: {
+  jackIn1: {
     shape: circle
     style.fill: "#8ac926"
   }
-  jack_in2: {
+  jackIn2: {
     shape: circle
     style.fill: "#8ac926"
   }
-  jack_in3: {
+  jackIn3: {
     shape: circle
     style.fill: "#8ac926"
   }
-  jack_in4: {
+  jackIn4: {
     shape: circle
     style.fill: "#8ac926"
   }
-  jack_in5: {
+  jackIn5: {
     shape: circle
     style.fill: "#8ac926"
   }
-  jack_in6: {
+  jackIn6: {
     shape: circle
     style.fill: "#8ac926"
   }
-  jack_out1: {
-    shape: circle
-    style.fill: "#bf0603"
-    
-  }
-  jack_out2: {
+  jackOut1: {
     shape: circle
     style.fill: "#bf0603"
   }
-  jack_out3: {
+  jackOut2: {
     shape: circle
     style.fill: "#bf0603"
   }
-  jack_out4: {
+  jackOut3: {
     shape: circle
     style.fill: "#bf0603"
   }
-  jack_out5: {
+  jackOut4: {
     shape: circle
     style.fill: "#bf0603"
   }
-  jack_out6: {
+  jackOut5: {
     shape: circle
     style.fill: "#bf0603"
-  } 
+  }
+  jackOut6: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
   shape: rectangle
   style.fill: "#00afb9"
 }
-
 
 usbkey: {
   recL: {
@@ -163,20 +166,17 @@ usbkey: {
   style.fill: "#f07167"
 }
 
-
-
-
 # some minimal connectors
 
 console: {
-  slider1.label:ch1
-  bus1:{
-    label:MixBus1
+  ch1.label: canale_uno
+  bus1: {
+    label: bus_uno
     style.fill: "#ffb703"
   }
 }
 
-local.block1-8: {
+phisicalInput.block1-8: {
   xlr1: {
     shape: circle
     style.fill: "#8ac926"
@@ -188,671 +188,581 @@ local.block1-8: {
 }
 
 xusb.block1-8: {
-    return1: {
-      shape: circle
-      style.fill: "#8ac926"
-    }
-   
-    send1: {
-      shape: circle
-      style.fill: "#bf0603"
-    }   
-}
-
-consoleOutput.block1-4:{
-	out1: {
-		shape: circle
-		style.fill: "#a0a0a0"
-	  }
-}
-
-#end
-# feeding USB send 1
-#trying to print style for object local.block1-4.xlr1
-
-#style is here below
-local.block1-4.xlr1: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block1-8.send1
-
-#style is here below
-xusb.block1-8.send1: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block1-4.xlr1 -> xusb.block1-8.send1
-# feeding USB send 2
-#trying to print style for object local.block1-4.xlr2
-
-#style is here below
-local.block1-4.xlr2: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block1-8.send2
-
-#style is here below
-xusb.block1-8.send2: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block1-4.xlr2 -> xusb.block1-8.send2
-# feeding USB send 3
-#trying to print style for object local.block1-4.xlr3
-
-#style is here below
-local.block1-4.xlr3: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block1-8.send3
-
-#style is here below
-xusb.block1-8.send3: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block1-4.xlr3 -> xusb.block1-8.send3
-# feeding USB send 4
-#trying to print style for object local.block1-4.xlr4
-
-#style is here below
-local.block1-4.xlr4: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block1-8.send4
-
-#style is here below
-xusb.block1-8.send4: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block1-4.xlr4 -> xusb.block1-8.send4
-# feeding USB send 5
-#trying to print style for object local.block5-8.xlr5
-
-#style is here below
-local.block5-8.xlr5: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block1-8.send5
-
-#style is here below
-xusb.block1-8.send5: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block5-8.xlr5 -> xusb.block1-8.send5
-# feeding USB send 6
-#trying to print style for object local.block5-8.xlr6
-
-#style is here below
-local.block5-8.xlr6: {
-	shape: circle
-    style.fill: '#8ac926'
+  return1: {
+    shape: circle
+    style.fill: "#8ac926"
+  }
+
+  send1: {
+    shape: circle
+    style.fill: "#bf0603"
+  }
+}
+
+internalInput.block1-8: {
+  ch1: {
+    shape: circle
+    style.fill: "#a0a0a0"
+  }
+}
+
+internalOutput.block1-8: {
+  ch1: {
+    shape: circle
+    style.fill: "#a0a0a0"
+  }
+}
+
+# end
+direction:left
+console.STEREO->console.M: mono depends on LR
+direction:down
+phisicalInput.block1-8.xlr1{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block1-8.ch1{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block1-8.xlr1 -> internalInput.block1-8.ch1
+phisicalInput.block1-8.xlr2{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block1-8.ch2{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block1-8.xlr2 -> internalInput.block1-8.ch2
+phisicalInput.block1-8.xlr3{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block1-8.ch3{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block1-8.xlr3 -> internalInput.block1-8.ch3
+phisicalInput.block1-8.xlr4{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block1-8.ch4{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block1-8.xlr4 -> internalInput.block1-8.ch4
+phisicalInput.block1-8.xlr5{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block1-8.ch5{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block1-8.xlr5 -> internalInput.block1-8.ch5
+phisicalInput.block1-8.xlr6{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block1-8.ch6{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block1-8.xlr6 -> internalInput.block1-8.ch6
+phisicalInput.block1-8.xlr7{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block1-8.ch7{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block1-8.xlr7 -> internalInput.block1-8.ch7
+phisicalInput.block1-8.xlr8{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block1-8.ch8{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block1-8.xlr8 -> internalInput.block1-8.ch8
+phisicalInput.block9-16.xlr9{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block9-16.ch9{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block9-16.xlr9 -> internalInput.block9-16.ch9
+phisicalInput.block9-16.xlr10{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block9-16.ch10{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block9-16.xlr10 -> internalInput.block9-16.ch10
+phisicalInput.block9-16.xlr11{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block9-16.ch11{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block9-16.xlr11 -> internalInput.block9-16.ch11
+phisicalInput.block9-16.xlr12{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block9-16.ch12{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block9-16.xlr12 -> internalInput.block9-16.ch12
+phisicalInput.block9-16.xlr13{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block9-16.ch13{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block9-16.xlr13 -> internalInput.block9-16.ch13
+phisicalInput.block9-16.xlr14{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block9-16.ch14{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block9-16.xlr14 -> internalInput.block9-16.ch14
+phisicalInput.block9-16.xlr15{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block9-16.ch15{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block9-16.xlr15 -> internalInput.block9-16.ch15
+phisicalInput.block9-16.xlr16{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block9-16.ch16{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+phisicalInput.block9-16.xlr16 -> internalInput.block9-16.ch16
+xusb.block17-24.return17{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block17-24.ch17{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block17-24.return17 -> internalInput.block17-24.ch17
+xusb.block17-24.return18{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block17-24.ch18{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block17-24.return18 -> internalInput.block17-24.ch18
+xusb.block17-24.return19{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block17-24.ch19{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block17-24.return19 -> internalInput.block17-24.ch19
+xusb.block17-24.return20{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block17-24.ch20{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block17-24.return20 -> internalInput.block17-24.ch20
+xusb.block17-24.return21{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block17-24.ch21{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block17-24.return21 -> internalInput.block17-24.ch21
+xusb.block17-24.return22{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block17-24.ch22{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block17-24.return22 -> internalInput.block17-24.ch22
+xusb.block17-24.return23{
+ shape: circle
+ style.fill: '#8ac926'
 }
-#trying to print style for object xusb.block1-8.send6
 
-#style is here below
-xusb.block1-8.send6: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block5-8.xlr6 -> xusb.block1-8.send6
-# feeding USB send 7
-#trying to print style for object local.block5-8.xlr7
-
-#style is here below
-local.block5-8.xlr7: {
-	shape: circle
-    style.fill: '#8ac926'
+internalInput.block17-24.ch23{
+ shape: circle
+ style.fill: '#a0a0a0'
 }
-#trying to print style for object xusb.block1-8.send7
 
-#style is here below
-xusb.block1-8.send7: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block5-8.xlr7 -> xusb.block1-8.send7
-# feeding USB send 8
-#trying to print style for object local.block5-8.xlr8
-
-#style is here below
-local.block5-8.xlr8: {
-	shape: circle
-    style.fill: '#8ac926'
+xusb.block17-24.return23 -> internalInput.block17-24.ch23
+xusb.block17-24.return24{
+ shape: circle
+ style.fill: '#8ac926'
 }
-#trying to print style for object xusb.block1-8.send8
 
-#style is here below
-xusb.block1-8.send8: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block5-8.xlr8 -> xusb.block1-8.send8
-# feeding USB send 9
-#trying to print style for object local.block9-12.xlr9
-
-#style is here below
-local.block9-12.xlr9: {
-	shape: circle
-    style.fill: '#8ac926'
+internalInput.block17-24.ch24{
+ shape: circle
+ style.fill: '#a0a0a0'
 }
-#trying to print style for object xusb.block9-16.send9
 
-#style is here below
-xusb.block9-16.send9: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block9-12.xlr9 -> xusb.block9-16.send9
-# feeding USB send 10
-#trying to print style for object local.block9-12.xlr10
-
-#style is here below
-local.block9-12.xlr10: {
-	shape: circle
-    style.fill: '#8ac926'
+xusb.block17-24.return24 -> internalInput.block17-24.ch24
+xusb.block25-32.return25{
+ shape: circle
+ style.fill: '#8ac926'
 }
-#trying to print style for object xusb.block9-16.send10
 
-#style is here below
-xusb.block9-16.send10: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block9-12.xlr10 -> xusb.block9-16.send10
-# feeding USB send 11
-#trying to print style for object local.block9-12.xlr11
-
-#style is here below
-local.block9-12.xlr11: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block9-16.send11
-
-#style is here below
-xusb.block9-16.send11: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block9-12.xlr11 -> xusb.block9-16.send11
-# feeding USB send 12
-#trying to print style for object local.block9-12.xlr12
-
-#style is here below
-local.block9-12.xlr12: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block9-16.send12
-
-#style is here below
-xusb.block9-16.send12: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block9-12.xlr12 -> xusb.block9-16.send12
-# feeding USB send 13
-#trying to print style for object local.block13-16.xlr13
-
-#style is here below
-local.block13-16.xlr13: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block9-16.send13
-
-#style is here below
-xusb.block9-16.send13: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block13-16.xlr13 -> xusb.block9-16.send13
-# feeding USB send 14
-#trying to print style for object local.block13-16.xlr14
-
-#style is here below
-local.block13-16.xlr14: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block9-16.send14
-
-#style is here below
-xusb.block9-16.send14: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block13-16.xlr14 -> xusb.block9-16.send14
-# feeding USB send 15
-#trying to print style for object local.block13-16.xlr15
-
-#style is here below
-local.block13-16.xlr15: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block9-16.send15
-
-#style is here below
-xusb.block9-16.send15: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block13-16.xlr15 -> xusb.block9-16.send15
-# feeding USB send 16
-#trying to print style for object local.block13-16.xlr16
-
-#style is here below
-local.block13-16.xlr16: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-#trying to print style for object xusb.block9-16.send16
-
-#style is here below
-xusb.block9-16.send16: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-local.block13-16.xlr16 -> xusb.block9-16.send16
-# feeding USB send 17
-#trying to print style for object consoleOutput.block1-4.xlr1
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block17-24.send17
-
-#style is here below
-xusb.block17-24.send17: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block1-4.xlr1 -> xusb.block17-24.send17
-# feeding USB send 18
-#trying to print style for object consoleOutput.block1-4.xlr2
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block17-24.send18
-
-#style is here below
-xusb.block17-24.send18: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block1-4.xlr2 -> xusb.block17-24.send18
-# feeding USB send 19
-#trying to print style for object consoleOutput.block1-4.xlr3
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block17-24.send19
-
-#style is here below
-xusb.block17-24.send19: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block1-4.xlr3 -> xusb.block17-24.send19
-# feeding USB send 20
-#trying to print style for object consoleOutput.block1-4.xlr4
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block17-24.send20
-
-#style is here below
-xusb.block17-24.send20: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block1-4.xlr4 -> xusb.block17-24.send20
-# feeding USB send 21
-#trying to print style for object consoleOutput.block5-8.xlr5
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block17-24.send21
-
-#style is here below
-xusb.block17-24.send21: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block5-8.xlr5 -> xusb.block17-24.send21
-# feeding USB send 22
-#trying to print style for object consoleOutput.block5-8.xlr6
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block17-24.send22
-
-#style is here below
-xusb.block17-24.send22: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block5-8.xlr6 -> xusb.block17-24.send22
-# feeding USB send 23
-#trying to print style for object consoleOutput.block5-8.xlr7
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block17-24.send23
-
-#style is here below
-xusb.block17-24.send23: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block5-8.xlr7 -> xusb.block17-24.send23
-# feeding USB send 24
-#trying to print style for object consoleOutput.block5-8.xlr8
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block17-24.send24
-
-#style is here below
-xusb.block17-24.send24: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block5-8.xlr8 -> xusb.block17-24.send24
-# feeding USB send 25
-#trying to print style for object consoleOutput.block9-12.xlr9
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block25-32.send25
-
-#style is here below
-xusb.block25-32.send25: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block9-12.xlr9 -> xusb.block25-32.send25
-# feeding USB send 26
-#trying to print style for object consoleOutput.block9-12.xlr10
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block25-32.send26
-
-#style is here below
-xusb.block25-32.send26: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block9-12.xlr10 -> xusb.block25-32.send26
-# feeding USB send 27
-#trying to print style for object consoleOutput.block9-12.xlr11
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block25-32.send27
-
-#style is here below
-xusb.block25-32.send27: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block9-12.xlr11 -> xusb.block25-32.send27
-# feeding USB send 28
-#trying to print style for object consoleOutput.block9-12.xlr12
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block25-32.send28
-
-#style is here below
-xusb.block25-32.send28: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block9-12.xlr12 -> xusb.block25-32.send28
-# feeding USB send 29
-#trying to print style for object consoleOutput.block13-16.xlr13
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block25-32.send29
-
-#style is here below
-xusb.block25-32.send29: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block13-16.xlr13 -> xusb.block25-32.send29
-# feeding USB send 30
-#trying to print style for object consoleOutput.block13-16.xlr14
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block25-32.send30
-
-#style is here below
-xusb.block25-32.send30: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block13-16.xlr14 -> xusb.block25-32.send30
-# feeding USB send 31
-#trying to print style for object consoleOutput.block13-16.xlr15
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block25-32.send31
-
-#style is here below
-xusb.block25-32.send31: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block13-16.xlr15 -> xusb.block25-32.send31
-# feeding USB send 32
-#trying to print style for object consoleOutput.block13-16.xlr16
-#but no style has been defined for consoleOutput.block.xlr
-#trying to print style for object xusb.block25-32.send32
-
-#style is here below
-xusb.block25-32.send32: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block13-16.xlr16 -> xusb.block25-32.send32
-#trying to print style for object consoleOutput.block1-4.out1
-
-#style is here below
-consoleOutput.block1-4.out1: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object output.block1-4.xlr1
-
-#style is here below
-output.block1-4.xlr1: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block1-4.out1 -> output.block1-4.xlr1
-#trying to print style for object consoleOutput.block1-4.out2
-
-#style is here below
-consoleOutput.block1-4.out2: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object output.block1-4.xlr2
-
-#style is here below
-output.block1-4.xlr2: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block1-4.out2 -> output.block1-4.xlr2
-#trying to print style for object consoleOutput.block1-4.out3
-
-#style is here below
-consoleOutput.block1-4.out3: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object output.block1-4.xlr3
-
-#style is here below
-output.block1-4.xlr3: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block1-4.out3 -> output.block1-4.xlr3
-#trying to print style for object consoleOutput.block1-4.out4
-
-#style is here below
-consoleOutput.block1-4.out4: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object output.block1-4.xlr4
-
-#style is here below
-output.block1-4.xlr4: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block1-4.out4 -> output.block1-4.xlr4
-#trying to print style for object consoleOutput.block5-8.out5
-
-#style is here below
-consoleOutput.block5-8.out5: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object output.block5-8.xlr5
-
-#style is here below
-output.block5-8.xlr5: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block5-8.out5 -> output.block5-8.xlr5
-#trying to print style for object consoleOutput.block5-8.out6
-
-#style is here below
-consoleOutput.block5-8.out6: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object output.block5-8.xlr6
-
-#style is here below
-output.block5-8.xlr6: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block5-8.out6 -> output.block5-8.xlr6
-#trying to print style for object consoleOutput.block5-8.out7
-
-#style is here below
-consoleOutput.block5-8.out7: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object output.block5-8.xlr7
-
-#style is here below
-output.block5-8.xlr7: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block5-8.out7 -> output.block5-8.xlr7
-#trying to print style for object consoleOutput.block5-8.out8
-
-#style is here below
-consoleOutput.block5-8.out8: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object output.block5-8.xlr8
-
-#style is here below
-output.block5-8.xlr8: {
-	shape: circle
-    style.fill: '#bf0603'
-}
-consoleOutput.block5-8.out8 -> output.block5-8.xlr8
-console.slider7.label: BasiL
-#trying to print style for object xusb.block25-32.return31
-
-#style is here below
-xusb.block25-32.return31: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-xusb.block25-32.return31->console.slider7
-console.slider7 -> console.STEREO
-console.slider7 -> console.bus1
-console.slider8.label: BasiR
-#trying to print style for object xusb.block25-32.return32
-
-#style is here below
-xusb.block25-32.return32: {
-	shape: circle
-    style.fill: '#8ac926'
-}
-xusb.block25-32.return32->console.slider8
-console.slider8 -> console.STEREO
-console.slider8 -> console.bus1
-console.bus1 -> consoleOutput.block1-4.out1
-#trying to print style for object consoleOutput.block1-4.out1
-#but it was already printed
-#trying to print style for object consoleOutput.block1-4.out2
-#but it was already printed
-#trying to print style for object consoleOutput.block1-4.out3
-#but it was already printed
-#trying to print style for object consoleOutput.block1-4.out4
-#but it was already printed
-#trying to print style for object consoleOutput.block5-8.out5
-#but it was already printed
-#trying to print style for object consoleOutput.block5-8.out6
-#but it was already printed
-console.STEREO.L -> consoleOutput.block5-8.out7
-#trying to print style for object consoleOutput.block5-8.out7
-#but it was already printed
-console.STEREO.R -> consoleOutput.block5-8.out8
-#trying to print style for object consoleOutput.block5-8.out8
-#but it was already printed
-#trying to print style for object consoleOutput.block9-12.out9
-
-#style is here below
-consoleOutput.block9-12.out9: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object consoleOutput.block9-12.out10
-
-#style is here below
-consoleOutput.block9-12.out10: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object consoleOutput.block9-12.out11
-
-#style is here below
-consoleOutput.block9-12.out11: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object consoleOutput.block9-12.out12
-
-#style is here below
-consoleOutput.block9-12.out12: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object consoleOutput.block13-16.out13
-
-#style is here below
-consoleOutput.block13-16.out13: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object consoleOutput.block13-16.out14
-
-#style is here below
-consoleOutput.block13-16.out14: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object consoleOutput.block13-16.out15
-
-#style is here below
-consoleOutput.block13-16.out15: {
-	shape: circle
-    style.fill: '#a0a0a0'
-}
-#trying to print style for object consoleOutput.block13-16.out16
-
-#style is here below
-consoleOutput.block13-16.out16: {
-	shape: circle
-    style.fill: '#a0a0a0'
+internalInput.block25-32.ch25{
+ shape: circle
+ style.fill: '#a0a0a0'
 }
+
+xusb.block25-32.return25 -> internalInput.block25-32.ch25
+xusb.block25-32.return26{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block25-32.ch26{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block25-32.return26 -> internalInput.block25-32.ch26
+xusb.block25-32.return27{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block25-32.ch27{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block25-32.return27 -> internalInput.block25-32.ch27
+xusb.block25-32.return28{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block25-32.ch28{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block25-32.return28 -> internalInput.block25-32.ch28
+xusb.block25-32.return29{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block25-32.ch29{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block25-32.return29 -> internalInput.block25-32.ch29
+xusb.block25-32.return30{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block25-32.ch30{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block25-32.return30 -> internalInput.block25-32.ch30
+xusb.block25-32.return31{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block25-32.ch31{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block25-32.return31 -> internalInput.block25-32.ch31
+xusb.block25-32.return32{
+ shape: circle
+ style.fill: '#8ac926'
+}
+
+internalInput.block25-32.ch32{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+xusb.block25-32.return32 -> internalInput.block25-32.ch32
+console.ch1{
+ label:1.Lav1
+}
+
+internalInput.block1-8.ch1 -> console.ch1
+console.STEREO.L
+console.ch1 -> console.STEREO.L
+console.bus1{
+ label:1.
+}
+
+console.ch1 -> console.bus1
+console.ch2{
+ label:2.Lav2
+}
+
+internalInput.block1-8.ch2 -> console.ch2
+console.ch2 -> console.STEREO.L
+console.ch2 -> console.bus1
+console.ch3{
+ label:3.Lav3
+}
+
+internalInput.block1-8.ch3 -> console.ch3
+console.ch3 -> console.STEREO.L
+console.ch3 -> console.bus1
+console.ch4{
+ label:4.Gelato
+}
+
+internalInput.block1-8.ch4 -> console.ch4
+console.ch4 -> console.STEREO.L
+console.ch4 -> console.bus1
+console.ch5{
+ label:5.Amb1
+}
+
+internalInput.block1-8.ch5 -> console.ch5
+console.ch5 -> console.STEREO.L
+console.ch5 -> console.bus1
+console.ch6{
+ label:6.Amb2
+}
+
+internalInput.block1-8.ch6 -> console.ch6
+console.ch6 -> console.STEREO.L
+console.ch6 -> console.bus1
+console.ch7{
+ label:7.Scorta1
+}
+
+internalInput.block1-8.ch7 -> console.ch7
+console.ch7 -> console.STEREO.L
+console.ch7 -> console.bus1
+console.ch8{
+ label:8.Scorta2
+}
+
+internalInput.block1-8.ch8 -> console.ch8
+console.ch8 -> console.STEREO.L
+console.ch8 -> console.bus1
+console.ch9{
+ label:9.Lat_L
+}
+
+internalInput.block9-16.ch9 -> console.ch9
+console.ch9 -> console.bus1
+console.ch10{
+ label:10.Stereo_L
+}
+
+internalInput.block9-16.ch10 -> console.ch10
+console.ch10 -> console.bus1
+console.ch11{
+ label:11.Stereo_R
+}
+
+internalInput.block9-16.ch11 -> console.ch11
+console.ch11 -> console.bus1
+console.ch12{
+ label:12.Lat_R
+}
+
+internalInput.block9-16.ch12 -> console.ch12
+console.ch12 -> console.bus1
+usbkey.playL->console.ch13
+console.ch13{
+ label:13.USB_L
+}
+
+console.ch13 -> console.STEREO.L
+console.ch13 -> console.bus1
+usbkey.playR->console.ch14
+console.ch14{
+ label:14.USB_R
+}
+
+console.ch14 -> console.STEREO.L
+console.ch14 -> console.bus1
+console.ch15{
+ label:15.PC_L
+}
+
+internalInput.block25-32.ch25 -> console.ch15
+console.ch15 -> console.STEREO.L
+console.ch15 -> console.bus1
+console.ch16{
+ label:16.PC_R
+}
+
+internalInput.block25-32.ch26 -> console.ch16
+console.ch16 -> console.STEREO.L
+console.ch16 -> console.bus1
+internalOutput.block1-8.ch1{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+console.bus1 -> internalOutput.block1-8.ch1
+internalOutput.block1-8.ch2{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block1-8.ch3{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block1-8.ch4{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block1-8.ch5{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block1-8.ch6{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+console.M -> internalOutput.block1-8.ch6
+internalOutput.block1-8.ch7{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+console.STEREO.L -> internalOutput.block1-8.ch7
+internalOutput.block1-8.ch8{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+console.STEREO.R -> internalOutput.block1-8.ch8
+internalOutput.block9-16.ch9{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block9-16.ch10{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block9-16.ch11{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block9-16.ch12{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block9-16.ch13{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block9-16.ch14{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block9-16.ch15{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
+internalOutput.block9-16.ch16{
+ shape: circle
+ style.fill: '#a0a0a0'
+}
+
