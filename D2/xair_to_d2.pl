@@ -1,18 +1,18 @@
 #! /usr/bin/perl
 
+use plug;
+use slider;
 
 use strict;
-
-use classes;
 
 use constant{
     MAX_BUS=>1,
 	MAX_XLR_OUTPUT=>8  # X32 rack has 8 output XLR...
 };
 
-# internal input /config/routing/IN AN1-8 AN9-16 CARD17-24 CARD25-32 AUX1-4
-# USB send /config/routing/CARD AN1-8 AN9-16 OUT1-8 OUT9-16
-# XLR phisical output /config/routing/OUT OUT1-4 OUT5-8 OUT9-12 OUT13-16
+# line describing internal input: /config/routing/IN AN1-8 AN9-16 CARD17-24 CARD25-32 AUX1-4
+# line describing USB send:       /config/routing/CARD AN1-8 AN9-16 OUT1-8 OUT9-16
+# line describing XLR output:     /config/routing/OUT OUT1-4 OUT5-8 OUT9-12 OUT13-16
 
 # IN
 my %inputObjectMap=(
@@ -34,9 +34,6 @@ sub printStructure{
   close(ELEMENTS);
 }
 
-my @inputForSlider;
-push(@inputForSlider,"dummy");
-
 sub groupToSingle{
 	my $whichQuartet=shift;
 	$whichQuartet=~m/^([A-Z]+)([0-9]+)-([0-9]+)$/;
@@ -51,11 +48,7 @@ sub groupToSingle{
 	return(@tmp);
 }
 
-sub connect{
-	my $from=shift;
-	my $to=shift;
-	print $from.getName." -> ".$to->getName."\n";
-}
+
 
 my $scnFile=shift;
 die "Usage: $0 <.scn file>" if($scnFile eq "");
@@ -77,20 +70,21 @@ while(<SCN_FILE>,){
         	print "direction:left\nconsole.STEREO->console.M: mono depends on LR\ndirection:down\n" if ($values[1] eq "ON"); # i.e. /config/mono LR+M ON, got after flagging "M/C depends on Main LR"
 		}elsif($params[2] eq "routing"){
 			if($params[3] eq "IN"){
+                # internal input
 				# e.g. /config/routing/IN AN1-8 AN9-16 AN17-24 CARD25-32 AUX1-4
 				# last value (AUX1-4) will not be considered, not clear
 				my $i=1;
 				foreach(groupToSingle($values[0])){
-					connect($_,internalInput->new($i++));
+					$_->connect(internalInput->new($i++));
 				}
 				foreach(groupToSingle($values[1])){
-					connect($_,internalInput->new($i++));
+                    $_->connect(internalInput->new($i++));
 				}
 				foreach(groupToSingle($values[2])){
-					connect($_,internalInput->new($i++));
+                    $_->connect(internalInput->new($i++));
 				}
 				foreach(groupToSingle($values[3])){
-					connect($_,internalInput->new($i++));
+                    $_->connect(internalInput->new($i++));
 				}
 			}elsif($params[3] eq "OUT"){
 
@@ -104,14 +98,13 @@ while(<SCN_FILE>,){
         if($params[3] eq "config"){  # e.g. /ch/03/config "" 1 YE 3
             $values[0]=~s/"//g;
             if($values[0] ne ''){
-              print "console.slider$id.label: ".$values[0]."\n";
+              channelSlider->new($id,$values[0]);
               if($values[3]==39){
-                print "usbkey.playL->console.slider$id\n";
+                print "usbkey.playL->console.ch$id\n";
               }elsif($values[3]==40){ 
-                print "usbkey.playR->console.slider$id\n";
+                print "usbkey.playR->console.ch$id\n";
               }elsif($values[3]<=32){
-				printObject($inputForSlider[$values[3]]);
-				print $inputForSlider[$values[3]]."->console.slider$id\n";
+				internalInput->new($values[3])->connect(channelSlider->new($id));
               }
               $mustPrintSliderConn[$id]=1;
             }
@@ -120,11 +113,11 @@ while(<SCN_FILE>,){
                 if(scalar(@params)==5){
                     # bus setting for this channel
                     my $busId=sprintf("%d",$params[4]);
-                    print "console.slider$id -> console.bus$busId\n" if ($busId<=MAX_BUS);
+                    channelSlider->new($id)->connect(busSlider->new($busId)) if ($busId<=MAX_BUS);
                 }else{
                     # L,R,M setting
-                    print "console.slider$id -> console.STEREO\n" if ($values[2] eq "ON");
-                    print "console.slider$id -> console.M\n" if ($values[4] eq "ON"); 
+                    channelSlider->new($id)->connect(leftSlider->new) if ($values[2] eq "ON");
+                    channelSlider->new($id)->connect(monoSlider->new) if ($values[4] eq "ON"); 
                 }
             }
         }
@@ -134,12 +127,13 @@ while(<SCN_FILE>,){
             if(scalar(@params)==4){
                 my $id=sprintf("%d",$params[3]);
 				my $whichOut=internalOutput->new($id);
+                $whichOut->printMe;
                 print "console.STEREO.L -> ".$whichOut->getName."\n" if($values[0]==1);
                 print "console.STEREO.R -> ".$whichOut->getName."\n" if($values[0]==2);
                 print "console.M -> ".$whichOut->getName."\n" if($values[0]==3);
                 if($values[0]>3){
                     my $busId=$values[0]-3;
-                    print "console.bus$busId -> ".$whichOut->getName."\n" if($busId<=MAX_BUS);
+                    busSlider->new($busId)->connect($whichOut) if($busId<=MAX_BUS);
                 }
             }
         }
