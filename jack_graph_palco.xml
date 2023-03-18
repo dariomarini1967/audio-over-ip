@@ -1,7 +1,7 @@
 <!DOCTYPE patchbay>
 <patchbay version="0.9.6" name="jack_graph_palco">
  <output-sockets>
-  <socket client="system" type="jack-audio" exclusive="off" name="system">
+  <socket type="jack-audio" name="system" client="system" exclusive="off">
    <plug>capture_1</plug>
    <plug>capture_2</plug>
    <plug>capture_3</plug>
@@ -35,27 +35,31 @@
    <plug>capture_31</plug>
    <plug>capture_32</plug>
   </socket>
-  <socket client="da_regia" type="jack-audio" exclusive="off" name="da_regia">
+  <socket type="jack-audio" name="da_regia" client="da_regia" exclusive="off">
    <plug>out_1</plug>
    <plug>out_2</plug>
   </socket>
-  <socket client="player_meter" type="jack-audio" exclusive="off" name="player_meter">
+  <socket type="jack-audio" name="player_meter" client="player_meter" exclusive="off">
    <plug>monitor_1</plug>
    <plug>monitor_2</plug>
    <plug>monitor_3</plug>
    <plug>monitor_4</plug>
   </socket>
-  <socket client="Audacious" type="jack-audio" exclusive="off" name="Audacious">
+  <socket type="jack-audio" name="Audacious" client="Audacious" exclusive="off">
    <plug>out_0</plug>
    <plug>out_1</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="system 2">
+  <socket type="jack-audio" name="system 2" client="system" exclusive="off">
    <plug>capture_31</plug>
    <plug>capture_32</plug>
   </socket>
+  <socket type="jack-audio" name="player_meter 2" client="player_meter" exclusive="off">
+   <plug>monitor_3</plug>
+   <plug>monitor_4</plug>
+  </socket>
  </output-sockets>
  <input-sockets>
-  <socket client="system" type="jack-audio" exclusive="off" name="system">
+  <socket type="jack-audio" name="system" client="system" exclusive="off">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
    <plug>playback_3</plug>
@@ -89,26 +93,31 @@
    <plug>playback_31</plug>
    <plug>playback_32</plug>
   </socket>
-  <socket client="player_meter" type="jack-audio" exclusive="off" name="player_meter">
+  <socket type="jack-audio" name="a_regia" client="a_regia" exclusive="off">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+  <socket type="jack-audio" name="player_meter" client="player_meter" exclusive="off">
    <plug>meter_1</plug>
    <plug>meter_2</plug>
    <plug>meter_3</plug>
    <plug>meter_4</plug>
   </socket>
-  <socket client="system" type="jack-audio" exclusive="off" name="system 2">
-   <plug>playback_29</plug>
-   <plug>playback_30</plug>
-  </socket>
-  <socket client="player_meter" type="jack-audio" exclusive="off" name="player_meter 2">
+  <socket type="jack-audio" name="player_meter 2" client="player_meter" exclusive="off">
    <plug>meter_3</plug>
    <plug>meter_4</plug>
+  </socket>
+  <socket type="jack-audio" name="system 2" client="system" exclusive="off">
+   <plug>playback_29</plug>
+   <plug>playback_30</plug>
   </socket>
  </input-sockets>
  <slots/>
  <cables>
-  <cable input="system 2" type="jack-audio" output="player_meter"/>
-  <cable input="player_meter" type="jack-audio" output="Audacious"/>
-  <cable input="player_meter 2" type="jack-audio" output="system 2"/>
+  <cable type="jack-audio" output="player_meter" input="system 2"/>
+  <cable type="jack-audio" output="Audacious" input="player_meter"/>
+  <cable type="jack-audio" output="system 2" input="player_meter 2"/>
+  <cable type="jack-audio" output="player_meter 2" input="a_regia"/>
  </cables>
 </patchbay>
 
