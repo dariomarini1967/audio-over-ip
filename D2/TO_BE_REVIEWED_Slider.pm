@@ -1,5 +1,5 @@
 package slider;
-use parent genericElement;
+use parent GenericElement;
 
 use strict;
 
