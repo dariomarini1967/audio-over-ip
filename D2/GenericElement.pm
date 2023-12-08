@@ -6,6 +6,16 @@ use Data::Dumper;
 
 use strict;
 
+# IDs
+# <ch> Mixer channel <ch
+# 1001 L
+# 1002 R
+# 1003 MONO
+# 1004 SoloL
+# 1005 SoloR
+# 2000+<ch> MixBus<ch>
+# 3000+<ch> AUX<ch>
+
 use constant {
     NEVER_PRINT => 0,
     ALWAYS_PRINT => 1,
