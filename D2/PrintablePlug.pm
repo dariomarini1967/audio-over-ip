@@ -23,10 +23,10 @@ sub new{
     my $elementAttributes=shift;
     my $self=$class->SUPER::new(
         $plugPath,
-        $id,
-        $name,
-        $elementAttributes
+        $id
     );
+    $self->setName($name) if($name);
+    $self->{attributes} = D2Attributes->new($self->getFullId)->addItem($elementAttributes);
     return($self);
 }
 
@@ -75,6 +75,27 @@ sub setElementOutput{
     }
     return($self);
 }
+
+sub getPrintable{
+    my $self=shift;
+    #my $toPrint=$self->{elementPath}.$self->{id};
+    my $toPrint=$self->{attributes}->printAttr;
+    return($toPrint);
+}
+
+sub getName{
+    my $self=shift;
+    return($self->{name});
+}
+
+sub setName{
+    my $self=shift;
+    my $name=shift;
+    $self->{name}=$name;
+    $self->{attributes}->addItem(D2Attributes->new("label",$name));
+    return($self);
+}
+
 #package xlrIn;
 #our @ISA = qw(plug);
 

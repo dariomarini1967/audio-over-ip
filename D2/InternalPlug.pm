@@ -7,8 +7,8 @@ sub new{
     my $class=shift;
     my $plugPath=shift;
     my $id=shift;
-    my $name=shift;
     my $self=$class->SUPER::new($plugPath,$id);
+    return($self) if($self->{alreadyCreated});
     $self->{completed}=0;
     return($self);
 }

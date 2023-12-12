@@ -1,7 +1,7 @@
 package Slider;
 use parent PrintablePlug;
 
-use ElementAttributes;
+use D2Attributes;
 
 use strict;
 
@@ -13,7 +13,7 @@ sub new{
         'console.ch',
         $id,
         "ch$id\\n\\n$name",
-        ElementAttributes->new->add("shape: oval")
+        D2Attributes->new("shape","oval")
     );
     $self->printMe;
     return($self);

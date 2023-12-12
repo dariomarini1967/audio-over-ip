@@ -1,7 +1,7 @@
 package Connector;
 use parent PrintablePlug;
 
-use ElementAttributes;
+use D2Attributes;
 
 use strict;
 
@@ -14,7 +14,9 @@ sub new{
         $plugPath,
         $id,
         $name,
-        ElementAttributes->new->add("shape: circle")->add("style.fill: white"),
+        D2Attributes->new($plugPath.$id)
+            ->addItem(D2Attributes->new("shape","circle"))
+            ->addItem(D2Attributes->new("style.fill","white")),
     );
     return($self);
 }

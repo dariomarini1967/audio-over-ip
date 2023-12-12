@@ -1,6 +1,6 @@
 package GenericElement;
 
-use ElementAttributes;
+use D2Attributes;
 
 use Data::Dumper;
 
@@ -28,26 +28,26 @@ sub new {
     my $class=shift;
     my $elementPath=shift;
     my $id=shift;
-    my $name=shift;
-    my $e=shift or ElementAttributes->new;    
     die "could not create an element with id <= 0" if($id<=0);
     # Check if the element has already been created with the given name and id
-    return $createdElements{$elementPath.$id} if (exists $createdElements{$elementPath.$id});
-
+    if (exists $createdElements{$elementPath.$id}){
+        my $self=$createdElements{$elementPath.$id};
+        $self->{alreadyCreated}=1;  # useful inside derived classes, even if not used up to now
+        return($self);
+    }
+    
     # Create a new instance of the class with the provided attributes
     # and store it in the createdElements hash
     my $self = {
         elementPath => $elementPath,
         id => $id,
-        attributes => $e,
         connectedOutputElements => [],  # array containing destination elements current element connects to
         connectedInputElement => undef,
-        name =>"NA",
+        alreadyCreated => 0,
         alreadyPrinted => 0  # 1 means that printMe method has already been called once
     };
     $self = bless($self, $class);
     $createdElements{$self->{elementPath}.$self->{id}} = $self;
-    $self->setName($name) if($name);
     return ($self);
 }
 
@@ -61,6 +61,11 @@ sub printMe {
     return 1;
 }
 
+sub getFullId{
+    my $self=shift;
+    return($self->{elementPath}.$self->{id});
+}
+
 sub getName{
     my $self=shift;
     return($self->{name});
@@ -70,14 +75,14 @@ sub setName{
     my $self=shift;
     my $name=shift;
     $self->{name}=$name;
-    $self->{attributes}->add("label: $name");
+    $self->{attributes}->addItem(D2Attributes->new("label",$name));
     return($self);
 }
 
 sub getPrintable{
     my $self=shift;
     my $toPrint=$self->{elementPath}.$self->{id};
-    my $attributes=$self->{attributes}->get;
+    my $attributes=$self->{attributes}->printAttr;
     $toPrint.=":".$attributes if($attributes);
     return($toPrint);
 }
