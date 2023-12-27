@@ -66,26 +66,8 @@ sub getFullId{
     return($self->{elementPath}.$self->{id});
 }
 
-sub getName{
-    my $self=shift;
-    return($self->{name});
-}
 
-sub setName{
-    my $self=shift;
-    my $name=shift;
-    $self->{name}=$name;
-    $self->{attributes}->addItem(D2Attributes->new("label",$name));
-    return($self);
-}
 
-sub getPrintable{
-    my $self=shift;
-    my $toPrint=$self->{elementPath}.$self->{id};
-    my $attributes=$self->{attributes}->printAttr;
-    $toPrint.=":".$attributes if($attributes);
-    return($toPrint);
-}
 
 sub connect{
     my $self=shift;
