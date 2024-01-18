@@ -1,7 +1,20 @@
+# PrintablePlug adds name, D2 attributes and methods to print itself
+
 package PrintablePlug;
 use parent GenericElement;
 
+use D2Struct;
+
+use Data::Dumper;
+use Scalar::Util qw(weaken);
+
+
 use strict;
+
+use constant {
+    ALWAYS_PRINT => 0,
+    PRINT_IF_CONNECTED => 1,
+};
 
 my %colorMap = (
     "YE" => "#FCF300",
@@ -19,14 +32,20 @@ sub new{
     my $class=shift;
     my $plugPath=shift;
     my $id=shift;
-    my $name=shift;
-    my $elementAttributes=shift;
     my $self=$class->SUPER::new(
         $plugPath,
         $id
     );
-    $self->setName($name) if($name);
-    $self->{attributes} = D2Attributes->new($self->getFullId)->addItem($elementAttributes);
+    $self->setPrintMode(ALWAYS_PRINT) if(not defined($self->getPrintMode));
+    my $initialD2=D2Struct->new($self->getFullId);
+    $self->{attributes}=$initialD2;
+    return($self);
+}
+
+sub addD2Attribute{
+    my $self=shift;
+    my $attribute=shift;
+    $self->{attributes}->addItem($attribute);
     return($self);
 }
 
@@ -36,29 +55,20 @@ sub setColor{
     $colorFromFile =~ s/^\s+|\s+$//g;  # remove leading and trailing whitespace
     my $isInverted=$colorFromFile=~s/i$//;
     my $mappedColor=$colorMap{$colorFromFile};
-    my @additionalAttributes=();
     if(not defined($mappedColor)){
         $isInverted=0;
         $mappedColor="#F1F7AD";
     }
     if($isInverted ||$colorFromFile eq "OFF"){
-        push(@additionalAttributes,"style.font-color: '#000000'");
-        push(@additionalAttributes,"style.fill: '".$mappedColor."'");
-
+        $self->addD2Attribute(D2Struct->new("style.font-color","'#000000'"));
+        $self->addD2Attribute(D2Struct->new("style.fill","'".$mappedColor."'"));
     }else{
-        push(@additionalAttributes,"style.fill: '#000000'");
-        push(@additionalAttributes,"style.font-color: '".$mappedColor."'");
+        $self->addD2Attribute(D2Struct->new("style.fill","'#000000'"));
+        $self->addD2Attribute(D2Struct->new("style.font-color","'".$mappedColor."'"));
     }
-    if($self->{alreadyPrinted}==1){
-        # print just new attributes in case the element has already been printed
-        print join("\n",map($self->{elementPath}.$self->{id}.".".$_,@additionalAttributes))."\n";
-    }
-    # add the new attributes
-    map($self->{attributes}->add($_),@additionalAttributes);
     return($self);
 }
  
-
 sub setElementInput{
     my $self=shift;
     my $whichInput=shift;
@@ -76,10 +86,18 @@ sub setElementOutput{
     return($self);
 }
 
+sub printMe{
+    my $self=shift;
+    if($self->getPrintMode==ALWAYS_PRINT || scalar @{$self->{connectedOutputElements}} >0 || defined $self->{connectedInputElement}){ 
+        print($self->getPrintable."\n");
+        return(1);    
+    }
+    return(0);
+}
+
 sub getPrintable{
     my $self=shift;
-    #my $toPrint=$self->{elementPath}.$self->{id};
-    my $toPrint=$self->{attributes}->printAttr;
+    my $toPrint=$self->{attributes}->toString;
     return($toPrint);
 }
 
@@ -92,12 +110,21 @@ sub setName{
     my $self=shift;
     my $name=shift;
     $self->{name}=$name;
-    $self->{attributes}->addItem(D2Attributes->new("label",$name));
+    $self->addD2Attribute(D2Struct->new("label",$name));
     return($self);
 }
 
-#package xlrIn;
-#our @ISA = qw(plug);
+sub setPrintMode{
+    my $self=shift;
+    $self->{printMode}=shift;
+}
+
+sub getPrintMode{
+    my $self=shift;
+    return($self->{printMode});
+}
+
+
 
 
 1;

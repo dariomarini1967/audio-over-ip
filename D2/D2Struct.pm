@@ -1,4 +1,4 @@
-package D2Attributes;
+package D2Struct;
 
 use Data::Dumper;
 
@@ -15,6 +15,7 @@ sub new{
         attrArray=>\@attrArray
     };
     bless($self,$class);
+    # new("name","value") is a shortcut for new("name")->setValue("value") 
     $self->setValue($value) if(defined($value));
     return($self);
 }
@@ -29,17 +30,20 @@ sub setValue{
 
 sub addItem{
     my $self=shift;
-    my $toAdd=shift;  # type is D2Attributes
-    die("only D2Attributes are allowed") if(ref($toAdd) ne "D2Attributes");
-    die("value is present") if (defined($self->{value}));
-    push(@{$self->{attrArray}},$toAdd);
+    my $toAdd=shift;  # type can be string or D2Struct
+    if(ref($toAdd) ne "D2Struct"){
+        $self->setValue($toAdd);
+    }else{
+        die("value is present") if (defined($self->{value}));
+        push(@{$self->{attrArray}},$toAdd);
+    }
     return($self);
 }
 
 use overload
-    '""' => \&printAttr;
+    '""' => \&toString;
 
-sub printAttr{
+sub toString{
     my $self=shift;
     my $tmp;
     $tmp=$self->{name};
@@ -48,7 +52,7 @@ sub printAttr{
     }else{
         my $composite;
         foreach(@{$self->{attrArray}}){
-            my $tmp1=$_->printAttr."\n";
+            my $tmp1=$_->toString."\n";
             # preceed each line in $tmp1 by one tab, do not consider last \n
             $tmp1=~s/\n(?!$)/\n\t/g;
             $composite.="\t$tmp1";
@@ -57,5 +61,7 @@ sub printAttr{
     }
     return($tmp);
 }
+
+
 
 1;

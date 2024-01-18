@@ -1,23 +1,22 @@
 package Connector;
 use parent PrintablePlug;
 
-use D2Attributes;
+use D2Struct;
 
 use strict;
 
 sub new{
     my $class=shift;
-    my $plugPath=shift;
+    my $connectorPath=shift;
     my $id=shift;
     my $name=shift;
     my $self=$class->SUPER::new(
-        $plugPath,
-        $id,
-        $name,
-        D2Attributes->new($plugPath.$id)
-            ->addItem(D2Attributes->new("shape","circle"))
-            ->addItem(D2Attributes->new("style.fill","white")),
+        $connectorPath,
+        $id
     );
+    $self->setName($name) if(defined($name));
+    $self->addD2Attribute(D2Struct->new("shape","circle"));
+    $self->addD2Attribute(D2Struct->new("style.fill","white"));
     return($self);
 }
 

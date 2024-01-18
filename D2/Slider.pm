@@ -1,7 +1,7 @@
 package Slider;
 use parent PrintablePlug;
 
-use D2Attributes;
+use D2Struct;
 
 use strict;
 
@@ -12,10 +12,14 @@ sub new{
     my $self=$class->SUPER::new(
         'console.ch',
         $id,
-        "ch$id\\n\\n$name",
-        D2Attributes->new("shape","oval")
+        
     );
-    $self->printMe;
+    if(defined($name)){
+        $self->setName("ch$id\\n\\n$name");    
+    }else{
+        $self->setName("ch$id");
+    }
+    $self->addD2Attribute(D2Struct->new("shape","oval"));
     return($self);
 }
 

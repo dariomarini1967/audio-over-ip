@@ -8,7 +8,6 @@ sub new{
     my $plugPath=shift;
     my $id=shift;
     my $self=$class->SUPER::new($plugPath,$id);
-    return($self) if($self->{alreadyCreated});
     $self->{completed}=0;
     return($self);
 }
@@ -40,11 +39,6 @@ sub setElementOutput{
     return($self);
 }
 
-sub printMe{
-    # we actually don't print InternalPlugs
-    my $self=shift;
-    return 1;
-}
 
 #package xlrIn;
 #our @ISA = qw(plug);

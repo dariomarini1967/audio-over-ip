@@ -20,8 +20,10 @@ use constant{
 
 # buses always present!
 my $mono=Mono->new;
-my $lr=LR->new;
-my $solo=Solo->new;
+my $mainL=MainL->new;
+my $mainR=MainR->new;
+my $soloL=SoloL->new;
+my $soloR=SoloR->new;
 
 
 # line describing Input screen (group by 8): /config/routing/IN AN1-8 AN9-16 CARD17-24 CARD25-32 AUX1-4
@@ -46,7 +48,7 @@ my %cardObjectMap=(
 );
 
 # Sources in XLR screen
-my %xlrObjectMap=%cardObjectMap;  # they are the same
+my %xlrObjectMap=%cardObjectMap;  # they are the same as Card screen
 
 my %liveOrVirt=(
     "REC"=>"live",

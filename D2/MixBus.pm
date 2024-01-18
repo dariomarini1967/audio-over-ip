@@ -7,7 +7,12 @@ sub new{
     my $class=shift;
     my $id=shift;
     my $name=shift;
-    my $self=$class->SUPER::new($id,"$name\\n\\n(mixbus $id)");
+    if(defined($name)){
+        $name=$name."\\n\\n(MixBus $id)";
+    }else{
+        $name="MixBus $id";
+    }
+    my $self=$class->SUPER::new(100+$id,$name);
     return($self);
 }
 

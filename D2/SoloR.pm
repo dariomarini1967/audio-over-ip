@@ -1,11 +1,11 @@
-package Mono;
+package SoloR;
 use parent GenericBus;
 
 use strict;
 
 sub new{
     my $class=shift;
-    my $self=$class->SUPER::new(3,"Mono");
+    my $self=$class->SUPER::new(5,"SoloR");
     return($self);
 }
 
