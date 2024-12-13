@@ -9,4 +9,4 @@ then
 	kill -9 $lsp_pid
 fi
 echo "starting linux-show-player on palco; display is $DISPLAY; tty is "$(tty)
-linux-show-player -f $HOME/BASI/ciaparatt/palco.lsp
+linux-show-player -f $HOME/BASI/TRENU/trenu.lsp

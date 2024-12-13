@@ -19,7 +19,7 @@ sub new{
         id => $id,
         connectedOutputElements => [],  # array containing destination elements current element connects to
         connectedInputElement => undef,
-        previouslyCreated => 0, # not used
+        previouslyCreated => 0, 
     };
     $self = bless($self, $class);
     return(ElementsCollector->get_instance->addIfExists($self));

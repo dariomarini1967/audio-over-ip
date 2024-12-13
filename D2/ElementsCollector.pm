@@ -30,11 +30,13 @@ sub addIfExists{
         $self->{createdElements}->{$key}=$elementToAdd;
         return($elementToAdd);
     }
+    $self->{createdElements}->{$key}->{previouslyCreated}=1;
     return($self->{createdElements}->{$key})
 }
 
 sub printAll{
     my $self=shift;
+    print "# printing all created elements\n";
     my $hash_ref = $self->{createdElements};
     foreach(keys %$hash_ref){
         $self->{createdElements}->{$_}->printMe();

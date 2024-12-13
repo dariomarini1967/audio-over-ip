@@ -3,12 +3,17 @@
 use Connector;
 use InternalPlug;
 use Slider;
-use Solo;
+use SoloL;
+use SoloR;
 use Mono;
-use LR;
+use MainL;
+use MainR;
 use MixBus;
 
+use ElementsCollector;
+
 use Switch;
+use Data::Dumper;
 
 use strict;
 
@@ -18,7 +23,7 @@ use constant{
 };
 
 
-# buses always present!
+# following buses are always present!
 my $mono=Mono->new;
 my $mainL=MainL->new;
 my $mainR=MainR->new;
@@ -60,11 +65,12 @@ my %liveOrVirt=(
 my $scnFile=shift;
 die "Usage: $0 <.scn file>" if($scnFile eq "");
 
-open(DEBUG,">debug.log") or die "could not open debug.log:$!";
+open(DEBUG,">xair_to_d2.log") or die "could not open debug.log:$!";
 
 my $playOrRec="REC"; # live use (REC) or virtual sound check (PLAY)
 open(SCN_FILE,"<",$scnFile) or die "could not open $scnFile:$!";
 
+# insert static elements; they are store in macroblocks.d2 
 if(open(MACROBLOCKS_FILE,"<","macroblocks.d2")){
     print DEBUG "reading macroblocks.d2\n";
     while(<MACROBLOCKS_FILE>){
@@ -72,6 +78,7 @@ if(open(MACROBLOCKS_FILE,"<","macroblocks.d2")){
     }
     close(MACROBLOCKS_FILE);
 }
+
 while(<SCN_FILE>,){
     my $oneLine=$_;
     chomp($oneLine);
@@ -121,18 +128,23 @@ while(<SCN_FILE>,){
         $oneLine=~s{^/ch/$channel/}{};
         if($oneLine=~m/^config /){ # e.g. /ch/01/config "Bolla" 50 YE 1
             $oneLine=~s/^config //;
-            print DEBUG "$oneLine ---> configuration of input and name for channel $channel\n";
+            print DEBUG "$oneLine ---> configuration of input and name for channel $channel:";
             my ($channelName,$icon,$color,$internalInputId) = $oneLine =~ /(?:\d+|"[^"]*"|\S+)\s*/g;
             $channelName =~ s/"//g;
+            print DEBUG "$channelName,$icon,$color,$internalInputId\n";
             if($internalInputId<=32 && $internalInputId>=1){
-                InternalPlug->new("internalInput.ch",$internalInputId)->connect(Slider->new($channel,$channelName)->setColor($color));
+                my $tmpSlider=Slider->new($channel);
+                $tmpSlider->setName($channelName)->setColor($color);
+                print DEBUG Dumper($tmpSlider)."\n";
+                InternalPlug->new("internalInput.ch",$internalInputId)->connect($tmpSlider);
             }
         }elsif($oneLine=~m/^mix /){ # e.g. /ch/01/mix OFF  -4.1 ON +0 OFF   -oo
             $oneLine=~s/^mix //;
             print DEBUG "$oneLine ---> configuration of slider output to LR & MONO for $channel\n";
             my ($dummy1,$dummy2,$onLR,$dummy3,$onMono)=split(" +",$oneLine);
             if($onLR eq "ON"){
-                Slider->new($channel)->connect($lr);
+                Slider->new($channel)->connect($mainL);
+                Slider->new($channel)->connect($mainR);
             }
             if($onMono eq "ON"){
                 Slider->new($channel)->connect($mono);
@@ -145,13 +157,14 @@ while(<SCN_FILE>,){
         print DEBUG "$oneLine ---> set input $channel of internal outputto $sourceId\n";
         switch($sourceId){
             case 1 {$mono->connect(InternalPlug->new("internalOutput.ch",$channel));}
-            case 2 {$lr->connect(InternalPlug->new("internalOutput.ch",$channel));}                
-            case 3 {$lr->connect(InternalPlug->new("internalOutput.ch",$channel));}
+            case 2 {$mainL->connect(InternalPlug->new("internalOutput.ch",$channel));}                
+            case 3 {$mainR->connect(InternalPlug->new("internalOutput.ch",$channel));}
             case [4..19] {MixBus->new($sourceId-3)->connect(InternalPlug->new("internalOutput.ch",$channel));}
             case [20..51] {Slider->new($sourceId-19)->connect(InternalPlug->new("internalOutput.ch",$channel));}
         }
     }
 }
+ElementsCollector->get_instance->printAll;
 close(SCN_FILE);
 
 
