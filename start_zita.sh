@@ -19,8 +19,6 @@ then
 	zita-n2j --buff 30 --jname da_regia 0.0.0.0 4322 2>&1 >>da_regia.log 2>&1 &
 	pkill -f meterbridge
 	meterbridge -n player_meter -t dpm 1 2 3 4 &
-	audacious &
-	# ./start_lsp.sh &
 else
 	echo "starting zita for REGIA"
 	host_regia=$(ip -br -4 a  | awk '($2=="UP"){gsub("/.+$","",$3);print $3}')
