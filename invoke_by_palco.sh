@@ -14,7 +14,7 @@ then
 	$to_be_invoked
 else
 	host_palco=$(egrep "^host_palco" $curr_dir/ADDRESSES.cfg|cut -d"=" -f2)
-	ssh -t -Y tecnici@$host_palco "(cd audio-over-ip;$to_be_invoked)"
+	ssh -t -Y tecnici@$host_palco "(. ./.profile;cd audio-over-ip;$to_be_invoked)"
 fi
 
 
