@@ -1,7 +1,7 @@
 [Desktop Entry]
 Comment[en_US]=
 Comment=
-Exec=/home/tecnici/audio-over-ip/invoke_by_palco.sh ./lsp_teatro.sh
+Exec=$HOME/audio-over-ip/invoke_by_palco.sh ./lsp_teatro.sh
 GenericName[en_US]=Linux Show Player
 GenericName=Linux Show Player
 Icon=audio-speaker-right-testing
