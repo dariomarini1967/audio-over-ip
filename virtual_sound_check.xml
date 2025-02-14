@@ -1,7 +1,7 @@
 <!DOCTYPE patchbay>
 <patchbay name="virtual_sound_check" version="0.9.6">
  <output-sockets>
-  <socket type="jack-audio" name="system" client="system" exclusive="off">
+  <socket name="system" type="jack-audio" exclusive="off" client="system">
    <plug>capture_1</plug>
    <plug>capture_2</plug>
    <plug>capture_3</plug>
@@ -35,74 +35,80 @@
    <plug>capture_31</plug>
    <plug>capture_32</plug>
   </socket>
-  <socket type="jack-audio" name="da_regia" client="da_regia" exclusive="off">
+  <socket name="da_regia" type="jack-audio" exclusive="off" client="da_regia">
    <plug>out_1</plug>
    <plug>out_2</plug>
   </socket>
-  <socket type="jack-audio" name="player_meter" client="player_meter" exclusive="off">
+  <socket name="player_meter" type="jack-audio" exclusive="off" client="player_meter">
    <plug>monitor_1</plug>
    <plug>monitor_2</plug>
    <plug>monitor_3</plug>
    <plug>monitor_4</plug>
   </socket>
-  <socket type="jack-audio" name="Audacious" client="Audacious" exclusive="off">
-   <plug>out_0</plug>
-   <plug>out_1</plug>
-  </socket>
-  <socket type="jack-audio" name="ardour" client="ardour" exclusive="off">
+  <socket name="ardour" type="jack-audio" exclusive="off" client="ardour">
    <plug>LTC\-Out</plug>
    <plug>Click\/audio_out\ 1</plug>
    <plug>Click\/audio_out\ 2</plug>
    <plug>Master\/audio_out\ 1</plug>
    <plug>Master\/audio_out\ 2</plug>
-   <plug>ChitBru\/audio_out\ 1</plug>
-   <plug>ChitBru\/audio_out\ 2</plug>
-   <plug>ChitGio\/audio_out\ 1</plug>
-   <plug>ChitGio\/audio_out\ 2</plug>
-   <plug>Bruno\/audio_out\ 1</plug>
-   <plug>Bruno\/audio_out\ 2</plug>
-   <plug>Ginevra\/audio_out\ 1</plug>
-   <plug>Ginevra\/audio_out\ 2</plug>
-   <plug>Flauto\/audio_out\ 1</plug>
-   <plug>Flauto\/audio_out\ 2</plug>
-   <plug>Shake\/audio_out\ 1</plug>
-   <plug>Shake\/audio_out\ 2</plug>
-   <plug>PercL\/audio_out\ 1</plug>
-   <plug>PercL\/audio_out\ 2</plug>
-   <plug>PercR\/audio_out\ 1</plug>
-   <plug>PercR\/audio_out\ 2</plug>
-   <plug>PianoL\ mono\/audio_out\ 1</plug>
-   <plug>PianoL\ mono\/audio_out\ 2</plug>
-   <plug>PianoR\/audio_out\ 1</plug>
-   <plug>PianoR\/audio_out\ 2</plug>
-   <plug>Michele\/audio_out\ 1</plug>
-   <plug>Michele\/audio_out\ 2</plug>
-   <plug>Diana\/audio_out\ 1</plug>
-   <plug>Diana\/audio_out\ 2</plug>
-   <plug>Maristella\/audio_out\ 1</plug>
-   <plug>Maristella\/audio_out\ 2</plug>
-   <plug>Spare\/audio_out\ 1</plug>
-   <plug>Spare\/audio_out\ 2</plug>
+   <plug>Audio\ 1\/audio_out\ 1</plug>
+   <plug>Audio\ 1\/audio_out\ 2</plug>
+   <plug>Audio\ 2\/audio_out\ 1</plug>
+   <plug>Audio\ 2\/audio_out\ 2</plug>
+   <plug>Audio\ 3\/audio_out\ 1</plug>
+   <plug>Audio\ 3\/audio_out\ 2</plug>
+   <plug>Audio\ 4\/audio_out\ 1</plug>
+   <plug>Audio\ 4\/audio_out\ 2</plug>
+   <plug>Audio\ 5\/audio_out\ 1</plug>
+   <plug>Audio\ 5\/audio_out\ 2</plug>
+   <plug>Audio\ 6\/audio_out\ 1</plug>
+   <plug>Audio\ 6\/audio_out\ 2</plug>
+   <plug>Audio\ 7\/audio_out\ 1</plug>
+   <plug>Audio\ 7\/audio_out\ 2</plug>
+   <plug>Audio\ 8\/audio_out\ 1</plug>
+   <plug>Audio\ 8\/audio_out\ 2</plug>
+   <plug>Audio\ 9\/audio_out\ 1</plug>
+   <plug>Audio\ 9\/audio_out\ 2</plug>
+   <plug>Audio\ 10\/audio_out\ 1</plug>
+   <plug>Audio\ 10\/audio_out\ 2</plug>
+   <plug>Audio\ 11\/audio_out\ 1</plug>
+   <plug>Audio\ 11\/audio_out\ 2</plug>
+   <plug>Audio\ 12\/audio_out\ 1</plug>
+   <plug>Audio\ 12\/audio_out\ 2</plug>
+   <plug>Audio\ 13\/audio_out\ 1</plug>
+   <plug>Audio\ 13\/audio_out\ 2</plug>
+   <plug>Audio\ 14\/audio_out\ 1</plug>
+   <plug>Audio\ 14\/audio_out\ 2</plug>
+   <plug>Audio\ 15\/audio_out\ 1</plug>
+   <plug>Audio\ 15\/audio_out\ 2</plug>
+   <plug>Audio\ 16\/audio_out\ 1</plug>
+   <plug>Audio\ 16\/audio_out\ 2</plug>
    <plug>auditioner\/audio_out\ 1</plug>
    <plug>auditioner\/audio_out\ 2</plug>
   </socket>
-  <socket type="jack-audio" name="ardour 2" client="ardour" exclusive="off">
-   <plug>ChitBru\/audio_out\ 1</plug>
-   <plug>ChitGio\/audio_out\ 1</plug>
-   <plug>Bruno\/audio_out\ 1</plug>
-   <plug>Ginevra\/audio_out\ 1</plug>
-   <plug>PercL\/audio_out\ 1</plug>
-   <plug>PercR\/audio_out\ 1</plug>
-   <plug>PianoL\ mono\/audio_out\ 1</plug>
-   <plug>Michele\/audio_out\ 1</plug>
-   <plug>Diana\/audio_out\ 1</plug>
-   <plug>Maristella\/audio_out\ 1</plug>
-  </socket>
-  <socket type="jack-audio" name="system 2" client="system" exclusive="off">
+  <socket name="system 2" type="jack-audio" exclusive="off" client="system">
    <plug>capture_31</plug>
    <plug>capture_32</plug>
   </socket>
-  <socket type="jack-midi" name="ardour" client="ardour" exclusive="off">
+  <socket name="ardour 2" type="jack-audio" exclusive="off" client="ardour">
+   <plug>Audio\ 1\/audio_out\ 1</plug>
+   <plug>Audio\ 2\/audio_out\ 1</plug>
+   <plug>Audio\ 3\/audio_out\ 1</plug>
+   <plug>Audio\ 4\/audio_out\ 1</plug>
+   <plug>Audio\ 5\/audio_out\ 1</plug>
+   <plug>Audio\ 6\/audio_out\ 1</plug>
+   <plug>Audio\ 7\/audio_out\ 1</plug>
+   <plug>Audio\ 8\/audio_out\ 1</plug>
+   <plug>Audio\ 9\/audio_out\ 1</plug>
+   <plug>Audio\ 10\/audio_out\ 1</plug>
+   <plug>Audio\ 11\/audio_out\ 1</plug>
+   <plug>Audio\ 12\/audio_out\ 1</plug>
+   <plug>Audio\ 13\/audio_out\ 1</plug>
+   <plug>Audio\ 14\/audio_out\ 1</plug>
+   <plug>Audio\ 15\/audio_out\ 1</plug>
+   <plug>Audio\ 16\/audio_out\ 1</plug>
+  </socket>
+  <socket name="ardour" type="jack-midi" exclusive="off" client="ardour">
    <plug>MMC\ out</plug>
    <plug>Scene\ out</plug>
    <plug>x\-virtual\-keyboard</plug>
@@ -111,7 +117,7 @@
   </socket>
  </output-sockets>
  <input-sockets>
-  <socket type="jack-audio" name="system" client="system" exclusive="off">
+  <socket name="system" type="jack-audio" exclusive="off" client="system">
    <plug>playback_1</plug>
    <plug>playback_2</plug>
    <plug>playback_3</plug>
@@ -145,53 +151,47 @@
    <plug>playback_31</plug>
    <plug>playback_32</plug>
   </socket>
-  <socket type="jack-audio" name="player_meter" client="player_meter" exclusive="off">
+  <socket name="a_regia" type="jack-audio" exclusive="off" client="a_regia">
+   <plug>in_1</plug>
+   <plug>in_2</plug>
+  </socket>
+  <socket name="player_meter" type="jack-audio" exclusive="off" client="player_meter">
    <plug>meter_1</plug>
    <plug>meter_2</plug>
    <plug>meter_3</plug>
    <plug>meter_4</plug>
   </socket>
-  <socket type="jack-audio" name="ardour" client="ardour" exclusive="off">
+  <socket name="ardour" type="jack-audio" exclusive="off" client="ardour">
    <plug>physical_audio_input_monitor_enable</plug>
    <plug>LTC\ in</plug>
    <plug>Master\/audio_in\ 1</plug>
    <plug>Master\/audio_in\ 2</plug>
-   <plug>ChitBru\/audio_in\ 1</plug>
-   <plug>ChitGio\/audio_in\ 1</plug>
-   <plug>Bruno\/audio_in\ 1</plug>
-   <plug>Ginevra\/audio_in\ 1</plug>
-   <plug>Flauto\/audio_in\ 1</plug>
-   <plug>Shake\/audio_in\ 1</plug>
-   <plug>PercL\/audio_in\ 1</plug>
-   <plug>PercR\/audio_in\ 1</plug>
-   <plug>PianoL\ mono\/audio_in\ 1</plug>
-   <plug>PianoR\/audio_in\ 1</plug>
-   <plug>Michele\/audio_in\ 1</plug>
-   <plug>Diana\/audio_in\ 1</plug>
-   <plug>Maristella\/audio_in\ 1</plug>
-   <plug>Spare\/audio_in\ 1</plug>
+   <plug>Audio\ 1\/audio_in\ 1</plug>
+   <plug>Audio\ 2\/audio_in\ 1</plug>
+   <plug>Audio\ 3\/audio_in\ 1</plug>
+   <plug>Audio\ 4\/audio_in\ 1</plug>
+   <plug>Audio\ 5\/audio_in\ 1</plug>
+   <plug>Audio\ 6\/audio_in\ 1</plug>
+   <plug>Audio\ 7\/audio_in\ 1</plug>
+   <plug>Audio\ 8\/audio_in\ 1</plug>
+   <plug>Audio\ 9\/audio_in\ 1</plug>
+   <plug>Audio\ 10\/audio_in\ 1</plug>
+   <plug>Audio\ 11\/audio_in\ 1</plug>
+   <plug>Audio\ 12\/audio_in\ 1</plug>
+   <plug>Audio\ 13\/audio_in\ 1</plug>
+   <plug>Audio\ 14\/audio_in\ 1</plug>
+   <plug>Audio\ 15\/audio_in\ 1</plug>
+   <plug>Audio\ 16\/audio_in\ 1</plug>
   </socket>
-  <socket type="jack-audio" name="system 2" client="system" exclusive="off">
-   <plug>playback_1</plug>
-   <plug>playback_2</plug>
-   <plug>playback_9</plug>
-   <plug>playback_8</plug>
-   <plug>playback_13</plug>
-   <plug>playback_14</plug>
-   <plug>playback_10</plug>
-   <plug>playback_5</plug>
-   <plug>playback_3</plug>
-   <plug>playback_4</plug>
-  </socket>
-  <socket type="jack-audio" name="player_meter 2" client="player_meter" exclusive="off">
+  <socket name="player_meter 2" type="jack-audio" exclusive="off" client="player_meter">
    <plug>meter_3</plug>
    <plug>meter_4</plug>
   </socket>
-  <socket type="jack-audio" name="system 3" client="system" exclusive="off">
+  <socket name="system 2" type="jack-audio" exclusive="off" client="system">
    <plug>playback_29</plug>
    <plug>playback_30</plug>
   </socket>
-  <socket type="jack-midi" name="ardour" client="ardour" exclusive="off">
+  <socket name="ardour" type="jack-midi" exclusive="off" client="ardour">
    <plug>physical_midi_input_monitor_enable</plug>
    <plug>MTC\ in</plug>
    <plug>MIDI\ Clock\ in</plug>
@@ -201,10 +201,9 @@
  </input-sockets>
  <slots/>
  <cables>
-  <cable input="system 3" type="jack-audio" output="player_meter"/>
-  <cable input="player_meter" type="jack-audio" output="Audacious"/>
-  <cable input="system 2" type="jack-audio" output="ardour 2"/>
-  <cable input="player_meter 2" type="jack-audio" output="system 2"/>
+  <cable type="jack-audio" output="player_meter" input="system 2"/>
+  <cable type="jack-audio" output="system 2" input="player_meter 2"/>
+  <cable type="jack-audio" output="ardour 2" input="system"/>
  </cables>
 </patchbay>
 
