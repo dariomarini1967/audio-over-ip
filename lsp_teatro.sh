@@ -10,4 +10,4 @@ then
 fi
 echo "starting linux-show-player on palco; display is $DISPLAY; tty is "$(tty)
 cd $HOME/linux-show-player
-poetry run linux-show-player
+poetry run linux-show-player -f $HOME/BASI/TRENU/genova.lsp
