@@ -1,19 +1,33 @@
 # Audio over IP
 
-Script e software necessari a attivare su 2 PC Linux jack audio con estensione per il network, allo scopo di inviare audio nelle 2 direzioni
-
-I PC sono normalmente chiamanti regia.local e palco.local (gli hostname vengono risolti usando il protocollo Avahi - presente di default in Ubuntu Studio e molte altre distro; il nome che si vuole assegnare al PC va configurato in `avahi-daemon.conf`)
-- palco.local invia 2 canali stereo per il preascolto a regia.local
-- regia.local invia 2 canali stereo con le basi a palco.local
+Script e software per la gestione audio in un tipico ambiente "live" con l'utilizzo di un mixer digitale (X32 rack o prodotti similari) collocato lato palco.
 
 
-# D2
-Progetto ancora in sviluppo per disegnare lo schemma delle connessioni di X32 a partire dai file .scn
+```mermaid
+graph LR;
+    subgraph palco
+        mixer[X32]<-->|USB|pc_palco
+        subgraph pc_palco ["PC PALCO"]
+            lsp((Linux Show Player))
+            jack_palco((Jack))
+        end
+    end
+    pc_palco<==>|LAN|pc_regia
+    subgraph regia
+        pc_regia(PC REGIA)<-->|USB|scheda_audio[Scheda audio];
+        subgraph pc_regia ["PC REGIA"]
+            jack_regia((Jack))
+        end
+    end
+    
+```
 
+Scopo principale è l'invio di audio stereo dal mixer alla regia tipicamente ad uso "preascolto" e dalla regia al mixer tipicamente prodotto da hardware o software (ad esempio un software multimediale o un microfono) presenti nella postazione regia.
 
-<hr>
+Basi ed effetti sonori sono gestiti da Linux Show Player residente nel PC sul palco e invocato dal PC in regia
 
-### note
-`systemctl status display-manager`
+- Linux Show Player official release: https://github.com/FrancescoCeruti/linux-show-player
+- Linux Show Player enhanced: https://github.com/dariomarini1967/linux-show-player/
 
+I PC sono solitamente chiamati regia.local e palco.local (gli hostname vengono risolti usando il protocollo Avahi  il nome che si vuole assegnare al PC va configurato in `avahi-daemon.conf`)
 
