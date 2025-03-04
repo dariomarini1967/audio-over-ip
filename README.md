@@ -21,7 +21,11 @@ graph LR;
     end
     
 ```
-
+Il sistema è basato su 2 PC Linux (con distribuzione Ubuntu Studio o similari)
+Vengono implementate le seguenti funzionlità:
+- Invio di audio stereo dal mixer alla regia tipicamente ad uso "preascolto" (aka "PFL")
+- Invio di audio stereo dalla regia al mixer tipicamente prodotto da hardware o software lì residente (ad esempio un software multimediale installato sul PC della regia od un microfono collegato alla scheda audio del suddetto)
+- Gestione di basi ed effetti sonori 
 Scopo principale è l'invio di audio stereo dal mixer alla regia tipicamente ad uso "preascolto" e dalla regia al mixer tipicamente prodotto da hardware o software (ad esempio un software multimediale o un microfono) presenti nella postazione regia.
 
 Basi ed effetti sonori sono gestiti da Linux Show Player residente nel PC sul palco e invocato dal PC in regia
