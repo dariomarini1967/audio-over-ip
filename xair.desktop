@@ -1,0 +1,19 @@
+[Desktop Entry]
+Comment[en_US]=
+Comment=
+Exec=/home/marini/XAIR/X-AIR-Edit
+GenericName[en_US]=
+GenericName=
+Icon=/home/marini/XAIR/X-AIR-Edit_icon.png
+MimeType=
+Name[en_US]=XAIR Edit
+Name=XAIR Edit
+Path=/home/marini/XAIR
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
